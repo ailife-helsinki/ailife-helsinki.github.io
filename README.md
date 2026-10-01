@@ -1,7 +1,7 @@
 # AiLIFE seminar series website
 
 Static website for **AiLIFE: Accelerating Life Sciences with AI and Agents**, the monthly hybrid
-seminar series organized by the mlbiomed group at FIMM and funded by HiLIFE and FIMM,
+seminar series organized by the MLBioMed group at FIMM and funded by HiLIFE and FIMM,
 University of Helsinki.
 
 No build tools or frameworks: plain HTML, CSS and a small JavaScript file. Open `index.html`
