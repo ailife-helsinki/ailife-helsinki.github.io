@@ -124,7 +124,7 @@
             <a class="btn btn-ghost" href="${googleCalUrl(next)}" target="_blank" rel="noopener">Add to Google Calendar</a>
             <a class="btn btn-ghost" href="ailife.ics" download>Subscribe (.ics)</a>
           </div>
-          <p class="hero-status">${statusBadge(next)}</p>
+          ${next.status !== "confirmed" ? `<p class="hero-status">${statusBadge(next)}</p>` : ""}
         </div>`;
     }
   }
