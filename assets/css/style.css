@@ -122,10 +122,8 @@ strong { font-weight: 600; }
 /* Scroll cue, bottom-right of the hero */
 .scroll-cue { position: absolute; right: 28px; bottom: 22px; display: flex; flex-direction: column; align-items: center; gap: 6px; color: rgba(255,255,255,.72); font-family: var(--font-mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; box-shadow: none; transition: color .15s; }
 .scroll-cue:hover { color: #fff; box-shadow: none; }
-.scroll-cue svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; animation: cue 2.6s ease-in-out infinite; }
-@keyframes cue { 0%, 100% { transform: translateY(0); opacity: .75; } 50% { transform: translateY(6px); opacity: 1; } }
+.scroll-cue svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 760px) { .scroll-cue { display: none; } }
-@media (prefers-reduced-motion: reduce) { .scroll-cue svg { animation: none; } }
 .hero-inner { position: relative; }
 .series-title {
   font-family: var(--font-display); font-weight: 300; font-size: clamp(2.6rem, 6.6vw, 5.6rem);

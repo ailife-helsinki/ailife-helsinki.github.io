@@ -34,7 +34,7 @@
       w = r.width; h = r.height;
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.round(Math.min(90, Math.max(24, (w * h) / 16000)) * density);
+      const n = Math.round(Math.min(60, Math.max(16, (w * h) / 24000)) * density);
       while (nodes.length < n) nodes.push(makeNode(nodes.length));
       nodes.length = n;
     }
@@ -58,7 +58,7 @@
       const cx = narrow ? w * .94 : Math.min(w * cxMax, wrapRight + cxOff);
       const tilt = tiltRad;                                // radians; more negative = top leans further left (data-tilt)
       const step = narrow ? 9 : 7;
-      const spin = reduce ? 0 : t * 0.35;
+      const spin = reduce ? 0 : t * 0.175;
       helix = [];
       ctx.save();
       ctx.translate(cx, h / 2); ctx.rotate(tilt); ctx.translate(-cx, -h / 2);
