@@ -19,6 +19,8 @@
     if (!ctx) return;
     const density = Number(canvas.dataset.network) || 1;
     const helixScale = Number(canvas.dataset.helix) || 0;
+    const tiltRad = canvas.dataset.tilt !== undefined ? Number(canvas.dataset.tilt) : -0.30;
+    const cxFrac = canvas.dataset.cx !== undefined ? Number(canvas.dataset.cx) : 0.74;   // helix centre as a fraction of width (desktop)
     let w = 0, h = 0, dpr = 1, nodes = [], helix = [], raf = 0, visible = true, t0 = performance.now();
     const LINK = 130;
 
@@ -48,8 +50,8 @@
       const narrow = w < 760;
       const R = (narrow ? 34 : 84) * helixScale;          // helix radius
       const pitch = (narrow ? 150 : 230) * helixScale;    // px per full turn
-      const cx = narrow ? w * .94 : w * .74;
-      const tilt = -0.30;                                  // radians; more negative = top leans further left
+      const cx = narrow ? w * .94 : w * cxFrac;
+      const tilt = tiltRad;                                // radians; more negative = top leans further left (data-tilt)
       const step = narrow ? 9 : 7;
       const spin = reduce ? 0 : t * 0.35;
       helix = [];
