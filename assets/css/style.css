@@ -109,10 +109,11 @@ strong { font-weight: 600; }
 }
 .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 .hero {
-  /* Fill the first screen exactly: viewport height minus the sticky header. */
+  /* Fill the first screen on laptops, but stop growing on very large monitors:
+     viewport height minus the sticky header, capped at 860px. */
   --header-h: 72px;
-  min-height: calc(100vh - var(--header-h));
-  min-height: calc(100svh - var(--header-h));
+  min-height: min(calc(100vh - var(--header-h)), 860px);
+  min-height: min(calc(100svh - var(--header-h)), 860px);
   display: flex; align-items: center;
   padding: 32px 0 56px;
 }
