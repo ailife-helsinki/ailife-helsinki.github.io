@@ -15,7 +15,7 @@
 //   abstract    plain text / simple HTML, optional
 //   bio         speaker bio, optional
 //   radar       who gives the 10-15 min "AiLIFE Radar" opener, optional
-//   venue       { name, room, address, mapUrl, campus }
+//   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "viikki", "online"
 //   notice      short highlighted message, optional (e.g. "Room changed to Hall 2")
 //   zoom        URL string, optional (leave "" until announced)
 //   recording   URL string, optional (filled in after the talk)
@@ -42,6 +42,13 @@ AILIFE.venues = {
   biomedicum: {
     name: "Biomedicum Helsinki 1",
     room: "Seminar rooms 1–2",
+    address: "Haartmaninkatu 8, 00290 Helsinki",
+    campus: "Meilahti campus",
+    mapUrl: "https://maps.google.com/?q=Biomedicum+Helsinki+1,+Haartmaninkatu+8,+00290+Helsinki",
+  },
+  biomedicum3: {
+    name: "Biomedicum Helsinki 1",
+    room: "Seminar room 3",
     address: "Haartmaninkatu 8, 00290 Helsinki",
     campus: "Meilahti campus",
     mapUrl: "https://maps.google.com/?q=Biomedicum+Helsinki+1,+Haartmaninkatu+8,+00290+Helsinki",
@@ -82,7 +89,7 @@ AILIFE.seminars = [
     slides: "",
     tags: ["opening session"],
   },
-  { id: "2026-11-24", date: "2026-11-24", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
+  { id: "2026-11-24", date: "2026-11-24", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum3", tags: [] },
   { id: "2026-12-22", date: "2026-12-22", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
   { id: "2027-01-26", date: "2027-01-26", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
   { id: "2027-02-23", date: "2027-02-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
