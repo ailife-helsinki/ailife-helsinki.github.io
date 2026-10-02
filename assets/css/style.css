@@ -327,6 +327,12 @@ strong { font-weight: 600; }
 .arc-links { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; padding-top: 4px; }
 .arc-links a { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; box-shadow: none; }
 .arc-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.radar summary { display: inline-flex; align-items: center; gap: 8px; color: var(--amber-ink); }
+.radar summary::before { display: none; }
+.radar-list { margin: 10px 0 0; padding-left: 1.1em; max-width: 70ch; color: var(--ink-2); font-size: .95rem; }
+.radar-list li { margin-bottom: 6px; }
+.radar-list li::marker { color: var(--amber); }
+.radar-note { color: var(--muted); }
 .arc-row.is-cancelled .arc-title { text-decoration: line-through; color: var(--muted); }
 @media (max-width: 860px) {
   .arc-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; margin: 0; }

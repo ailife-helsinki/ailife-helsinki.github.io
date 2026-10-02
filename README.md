@@ -33,7 +33,10 @@ entry updates the home page, the programme, the archive and the calendar file.
   title: "Talk title",
   abstract: "<p>HTML or plain text</p>",
   bio: "<p>Speaker bio</p>",
-  radar: "Heli Mönttinen",     // who gives the AiLIFE Radar opener
+  radar: "Heli Mönttinen",     // who gave the AiLIFE Radar opener
+  radarItems: [                // the Radar round-up; appears on Past seminars once filled in
+    { title: "ESM3 released", url: "https://...", note: "one line on why it matters" },
+  ],
   venue: "biomedicum",         // key in AILIFE.venues ("biomedicum" | "viikki" | "online"); add new venues there
   notice: "",                  // optional highlighted message, e.g. "Room changed to Hall 2"
   zoom: "",                    // per-seminar Zoom link (falls back to AILIFE.series.zoom)

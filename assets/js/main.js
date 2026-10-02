@@ -202,6 +202,12 @@
     if (s.recording) links.push(`<a href="${esc(s.recording)}" target="_blank" rel="noopener">Recording ›</a>`);
     if (s.slides) links.push(`<a href="${esc(s.slides)}" target="_blank" rel="noopener">Slides ›</a>`);
     const details = (s.abstract || s.bio) ? `<details class="abstract"><summary>Abstract${s.bio ? " & bio" : ""}</summary>${s.abstract ? `<div class="abstract-text">${s.abstract}</div>` : ""}${s.bio ? `<div class="bio-text"><h4>About the speaker</h4>${s.bio}</div>` : ""}</details>` : "";
+    // AiLIFE Radar: the month's round-up given at the start of the session.
+    const radarItems = Array.isArray(s.radarItems) ? s.radarItems.filter(r => r && r.title) : [];
+    const radar = radarItems.length ? `
+          <details class="abstract radar"><summary><span class="radar-dot" aria-hidden="true"></span>AiLIFE Radar${s.radar ? ` · ${esc(s.radar)}` : ""}</summary>
+            <ul class="radar-list">${radarItems.map(r => `<li>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : `<strong>${esc(r.title)}</strong>`}${r.note ? ` <span class="radar-note">${esc(r.note)}</span>` : ""}</li>`).join("")}</ul>
+          </details>` : "";
     return `
       <article class="arc-row${s.status === "cancelled" ? " is-cancelled" : ""}" id="${esc(s.id)}">
         <p class="arc-date">${esc(monoDate(s))}</p>
@@ -209,7 +215,7 @@
           <h3 class="arc-title">${esc(s.title && s.title !== "TBA" ? s.title : "Untitled talk")}</h3>
           <p class="arc-speaker">${who}</p>
           ${s.tags && s.tags.length ? `<p class="tags">${s.tags.map(tagHtml).join("")}</p>` : ""}
-          ${details}
+          ${details}${radar}
         </div>
         <p class="arc-venue">${esc(v.name)}${s.status === "cancelled" ? `<br>${statusBadge(s)}` : ""}</p>
         <p class="arc-links">${links.join("")}</p>

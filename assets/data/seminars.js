@@ -14,7 +14,9 @@
 //   title       talk title ("TBA" if not yet known)
 //   abstract    plain text / simple HTML, optional
 //   bio         speaker bio, optional
-//   radar       who gives the 10-15 min "AiLIFE Radar" opener, optional
+//   radar       who gave the 10-15 min "AiLIFE Radar" opener, optional
+//   radarItems  the Radar round-up, shown on past.html once filled in, optional:
+//               [{ title: "ESM3 released", url: "https://...", note: "one-line why it matters" }, ...]
 //   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "viikki", "online"
 //   notice      short highlighted message, optional (e.g. "Room changed to Hall 2")
 //   zoom        URL string, optional (leave "" until announced)
@@ -82,7 +84,8 @@ AILIFE.seminars = [
     title: "TBA",
     abstract: "",
     bio: "",
-    radar: "Esa Pitkänen — introduction to the AiLIFE seminar series",
+    radar: "Esa Pitkänen",
+    radarItems: [],
     venue: "biomedicum",
     zoom: "",
     recording: "",
