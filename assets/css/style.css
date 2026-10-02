@@ -293,18 +293,6 @@ strong { font-weight: 600; }
 .js-reveal .theme { opacity: 0; transform: translateY(14px); transition: opacity .6s var(--ease) var(--d, 0ms), transform .6s var(--ease) var(--d, 0ms), box-shadow .2s var(--ease), border-color .2s; }
 .js-reveal .theme.in:hover { transform: translateY(-2px) !important; }
 
-/* ---- Agent loop figure --------------------------------------------------- */
-.loop-figure { margin: 36px 0 0; max-width: 420px; }
-.loop-figure svg { width: 100%; height: auto; display: block; color: var(--uh-blue); overflow: visible; }
-.loop-ring { opacity: .7; }
-.loop-node circle { fill: var(--white); stroke: var(--uh-blue); stroke-width: 1.5; }
-.loop-node .ic { fill: none; stroke: var(--uh-blue); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.loop-node text, .loop-centre { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; fill: var(--ink-2); }
-.loop-node-amber circle { fill: var(--amber-05); stroke: var(--amber); }
-.loop-node-amber .ic { stroke: var(--amber-ink); }
-.loop-centre { fill: var(--muted); font-size: 10px; }
-.loop-figure figcaption { font-size: .88rem; color: var(--muted); margin-top: 10px; max-width: 46ch; }
-
 /* ---- CTA band ----------------------------------------------------------- */
 .cta-band { padding: 84px 0; }
 .cta-inner { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; }
