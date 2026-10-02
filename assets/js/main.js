@@ -209,7 +209,7 @@
             <ul class="radar-list">${radarItems.map(r => `<li>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a>` : `<strong>${esc(r.title)}</strong>`}${r.note ? ` <span class="radar-note">${esc(r.note)}</span>` : ""}</li>`).join("")}</ul>
           </details>` : "";
     return `
-      <article class="arc-row${s.status === "cancelled" ? " is-cancelled" : ""}" id="${esc(s.id)}">
+      <article class="arc-row${s.status === "cancelled" ? " is-cancelled" : ""}${s.tags && s.tags.length ? " tint-" + tintOf(s.tags[0]) : ""}" id="${esc(s.id)}">
         <p class="arc-date">${esc(monoDate(s))}</p>
         <div class="arc-main">
           <h3 class="arc-title">${esc(s.title && s.title !== "TBA" ? s.title : "Untitled talk")}</h3>
