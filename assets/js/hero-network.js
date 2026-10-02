@@ -46,9 +46,9 @@
     function drawHelix(t) {
       if (!helixScale) { helix = []; return; }
       const narrow = w < 760;
-      const R = (narrow ? 44 : 84) * helixScale;          // helix radius
+      const R = (narrow ? 34 : 84) * helixScale;          // helix radius
       const pitch = (narrow ? 150 : 230) * helixScale;    // px per full turn
-      const cx = narrow ? w * .82 : w * .80;
+      const cx = narrow ? w * .94 : w * .80;
       const tilt = -0.20;                                  // radians, lean to the right
       const step = narrow ? 9 : 7;
       const spin = reduce ? 0 : t * 0.35;

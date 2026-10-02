@@ -192,6 +192,9 @@ strong { font-weight: 600; }
 .notice { background: var(--amber-05); border: 1px solid var(--amber-20); color: var(--amber-ink); border-radius: var(--r-2); padding: 8px 12px; font-size: .94rem; margin: 0 0 14px; }
 @media (max-width: 760px) {
   .hero { padding: 24px 0 56px; min-height: 0; }
+  .hero > .hero-canvas { opacity: .5; }
+  .eyebrow-hero .eyebrow-sep { display: none; }
+  .eyebrow-tagline { flex-basis: 100%; }
   .series-meta { margin-bottom: 28px; }
   .hero-card { grid-template-columns: 1fr; border-radius: 16px 16px 16px 4px; }
   .hero-date-block { flex-direction: row; flex-wrap: wrap; gap: 4px 12px; justify-content: flex-start; align-items: baseline; padding: 18px 20px 14px; border-right: 0; border-bottom: 1px solid #f3dfb8; }
