@@ -293,6 +293,44 @@ strong { font-weight: 600; }
 .js-reveal .theme { opacity: 0; transform: translateY(14px); transition: opacity .6s var(--ease) var(--d, 0ms), transform .6s var(--ease) var(--d, 0ms), box-shadow .2s var(--ease), border-color .2s; }
 .js-reveal .theme.in:hover { transform: translateY(-2px) !important; }
 
+/* ---- Experimental bio motifs --------------------------------------------- */
+/* Cell blobs: soft organelle-like shapes, very slow morph, static under reduced motion. */
+.has-cells { position: relative; overflow: hidden; }
+.has-cells > .wrap { position: relative; }
+.cells { position: absolute; inset: 0; pointer-events: none; }
+.cell { position: absolute; display: block; filter: blur(34px); opacity: .55; border-radius: 48% 52% 60% 40% / 50% 45% 55% 50%; animation: morph 26s ease-in-out infinite alternate; }
+.cell-a { width: 420px; height: 340px; left: -120px; top: -80px; background: var(--t-azure-bg); }
+.cell-b { width: 360px; height: 300px; right: -100px; top: 20px; background: var(--t-antho-bg); animation-delay: -9s; }
+.cell-c { width: 300px; height: 260px; left: 42%; bottom: -140px; background: var(--t-lichen-bg); animation-delay: -17s; }
+@keyframes morph {
+  0% { border-radius: 48% 52% 60% 40% / 50% 45% 55% 50%; transform: translate(0,0) rotate(0deg); }
+  50% { border-radius: 55% 45% 42% 58% / 42% 58% 46% 54%; transform: translate(18px,-12px) rotate(6deg); }
+  100% { border-radius: 42% 58% 52% 48% / 56% 40% 60% 44%; transform: translate(-10px,14px) rotate(-4deg); }
+}
+/* Gradient-clipped keyword in the hero title (static). */
+.grad-word { background: linear-gradient(95deg, var(--amber-20) 0%, #ffe2a8 45%, var(--cyan) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Film grain on dark bands: static SVG noise, screen-blended. */
+.hero::after, .page-head::after, .cta-band::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .14; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+/* Pathway curves: metabolic-pathway-like gradient lines, draw in once when scrolled into view. */
+.pathways { background: var(--white); line-height: 0; }
+.pathways svg { width: 100%; height: 96px; display: block; }
+.pw { fill: none; stroke-width: 1.5; opacity: .75; stroke-dasharray: 2400; stroke-dashoffset: 2400; }
+.pathways.in .pw { animation: draw 2.2s var(--ease) forwards; }
+.pathways.in .pw:nth-child(2) { animation-delay: .25s; }
+.pathways.in .pw:nth-child(3) { animation-delay: .5s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+/* Hand-drawn squiggle under nav links on hover. */
+.nav a { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 103 9'%3E%3Cpath d='M1 5c8-4 12 4 20 0s12 4 20 0 12 4 20 0 12 4 20 0 12 4 21 0' fill='none' stroke='%23ffb000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 14px calc(100% - 3px) / 0 7px; transition: background-size .5s cubic-bezier(.215,.61,.355,1), color .15s, background-color .15s; }
+.nav a:hover { background-size: calc(100% - 28px) 7px; }
+@media (prefers-reduced-motion: reduce) {
+  .cell { animation: none; }
+  .pw { stroke-dashoffset: 0; animation: none; }
+  .nav a { transition: none; }
+}
+
 /* ---- CTA band ----------------------------------------------------------- */
 .cta-band { padding: 84px 0; }
 .cta-inner { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; }
