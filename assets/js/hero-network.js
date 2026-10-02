@@ -49,6 +49,10 @@
     }
 
     // --- DNA double helix ---------------------------------------------------
+    // Base pairs follow the first 375 nt of the human TP53 coding sequence
+    // (translates to p53 MEEPQSDPSVEPPLSQ...). Each rung is drawn as its
+    // hydrogen bonds: A–T pairs get 2 thin lines, G–C pairs get 3.
+    const SEQ = "ATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTCTGAGTCAGGAAACATTTTCAGACCTATGGAAACTACTTCCTGAAAACAACGTTCTGTCCCCCTTGCCGTCCCAAGCAATGGATGATTTGATGCTGTCCCCGGACGATATTGAACAATGGTTCACTGAAGACCCAGGTCCAGATGAAGCTCCCAGAATGCCAGAGGCTGCTCCCCCCGTGGCCCCTGCACCAGCAGCTCCTACACCGGCGGCCCCTGCACCAGCCCCCTCCTGGCCCCTGTCATCTTCTGTCCCTTCCCAGAAAACCTACCAGGGCAGCTACGGTTTCCGTCTGGGCTTCTTGCATTCTGGGACAGCCAAGTCTGTGACTTGCACG";
     function drawHelix(t) {
       if (!helixScale) { helix = []; return; }
       const narrow = w < 760;
@@ -74,11 +78,22 @@
         const xa = cx + R * Math.cos(th), xb = cx + R * Math.cos(th + GROOVE);
         // base-pair rungs: every 4th backbone dot = 10 per turn
         if (k % 4 === 0) {
+          const base = SEQ[(k / 4) % SEQ.length];
+          const bonds = (base === "G" || base === "C") ? 3 : 2;   // G–C: 3 H-bonds, A–T: 2
+          const gap = 1.7;                                         // px between bond lines
           const g = ctx.createLinearGradient(xa, y, xb, y);
-          g.addColorStop(0, `rgba(143,216,239,${.07 + .09 * (za + 1) / 2})`);
-          g.addColorStop(1, `rgba(255,215,153,${.07 + .09 * (zb + 1) / 2})`);
-          ctx.strokeStyle = g; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(xa, y); ctx.lineTo(xb, y); ctx.stroke();
+          g.addColorStop(0, `rgba(143,216,239,${.10 + .12 * (za + 1) / 2})`);
+          g.addColorStop(1, `rgba(255,215,153,${.10 + .12 * (zb + 1) / 2})`);
+          ctx.strokeStyle = g; ctx.lineWidth = .6;
+          // bonds only in the middle of the rung, like hydrogen bonds between the bases
+          const x0 = xa + (xb - xa) * .18, x1 = xa + (xb - xa) * .82;
+          ctx.beginPath(); ctx.moveTo(xa, y); ctx.lineTo(x0, y); ctx.moveTo(x1, y); ctx.lineTo(xb, y); ctx.stroke();
+          ctx.beginPath();
+          for (let b = 0; b < bonds; b++) {
+            const yy = y + (b - (bonds - 1) / 2) * gap;
+            ctx.moveTo(x0, yy); ctx.lineTo(x1, yy);
+          }
+          ctx.stroke();
         }
         dot(xa, y, za, 143, 216, 239);
         dot(xb, y, zb, 255, 215, 153);
