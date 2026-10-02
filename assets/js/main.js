@@ -187,7 +187,6 @@
           <h3 class="sem-title">${esc(s.title && s.title !== "TBA" ? s.title : "Title to be announced")}</h3>
           ${s.notice ? `<p class="notice">${esc(s.notice)}</p>` : ""}
           <div class="sem-speakers">${sp}</div>
-          ${s.radar ? `<p class="sem-radar"><span class="radar-dot" aria-hidden="true"></span><strong>AiLIFE Radar:</strong> ${esc(s.radar)}</p>` : ""}
           ${s.tags && s.tags.length ? `<p class="tags">${s.tags.map(tagHtml).join("")}</p>` : ""}
           ${details}
           ${links.length ? `<p class="sem-links">${links.join(" ")}</p>` : ""}
