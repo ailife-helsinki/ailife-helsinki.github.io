@@ -109,22 +109,16 @@ strong { font-weight: 600; }
 }
 .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 .hero {
-  /* Fill most of the first screen (88%) so the next section peeks in, and let
-     the next-seminar card straddle the bottom edge: both say "keep scrolling". */
+  /* Fill 88% of the first screen so the next section peeks in below. */
   --header-h: 72px;
-  --overlap: 56px;
   min-height: calc(88vh - var(--header-h));
   min-height: calc(88svh - var(--header-h));
-  padding: 32px 0 0;
-  overflow: visible;
-  z-index: 2;                 /* keep the straddling card above the next section */
+  display: flex; align-items: center;
+  padding: 32px 0 56px;
 }
-.hero-inner { width: min(var(--wrap), 100% - 32px); margin-inline: auto; min-height: inherit; display: flex; flex-direction: column; }
-.hero-text { margin: auto 0; padding-bottom: 28px; }
-.hero > .hero-card { transform: translateY(var(--overlap)); z-index: 2; }
-.hero + .section { padding-top: calc(88px + var(--overlap, 56px)); }
+.hero-inner { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+.hero-text { padding-bottom: 28px; }
 .hero-inner { position: relative; }
-.hero-inner > .hero-card { transform: translateY(var(--overlap)); position: relative; z-index: 2; }
 .series-title {
   font-family: var(--font-display); font-weight: 300; font-size: clamp(2.6rem, 6.6vw, 5.6rem);
   line-height: 1.08; letter-spacing: -.035em; margin: 0 0 22px; max-width: 15ch;
@@ -188,9 +182,8 @@ strong { font-weight: 600; }
 .hero-lead { color: var(--ink-2); }
 .notice { background: var(--amber-05); border: 1px solid var(--amber-20); color: var(--amber-ink); border-radius: var(--r-2); padding: 8px 12px; font-size: .94rem; margin: 0 0 14px; }
 @media (max-width: 760px) {
-  .hero { padding: 24px 0 48px; min-height: 0; --overlap: 0px; }
+  .hero { padding: 24px 0 48px; min-height: 0; }
   .hero-text { padding-bottom: 0; }
-  .hero + .section { padding-top: 56px; }
   .hero > .hero-canvas { opacity: .5; }
   .eyebrow-hero .eyebrow-sep { display: none; }
   .eyebrow-tagline { flex-basis: 100%; }
