@@ -73,7 +73,16 @@ python3 tools/build_ics.py      # writes ailife.ics (no dependencies, Python 3)
 
 ## Deploying on GitHub Pages
 
-1. Create a repository, commit this folder (you may exclude `examples/` and `meta/`).
-2. Settings → Pages → Deploy from branch `main`, folder `/ (root)`.
-3. The `webcal://` subscription address shown on the Attend page is built automatically
+The site is published from the `main` branch of
+`github.com/ailife-helsinki/ailife-helsinki.github.io` to https://ailife-helsinki.github.io.
+
+1. Push to `main`; GitHub Pages rebuilds within a minute or two (Settings → Pages →
+   Deploy from branch `main`, folder `/ (root)`). `.nojekyll` keeps Pages from running Jekyll.
+2. `examples/`, `meta/` and `img/` are git-ignored and never published.
+3. While the site is in internal preview, every page carries
+   `<meta name="robots" content="noindex, nofollow">`. Remove that line from all five HTML
+   files at public launch.
+4. For a custom domain (e.g. `ailife.mlbiomed.net`), add a `CNAME` file containing the
+   domain and point a DNS CNAME record at `ailife-helsinki.github.io`.
+5. The `webcal://` subscription address shown on the Attend page is built automatically
    from the site URL.
