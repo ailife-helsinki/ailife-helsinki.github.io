@@ -278,7 +278,7 @@
 
   // --- Scroll reveal (respects reduced motion) -----------------------------
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealTargets = document.querySelectorAll(".section .wrap > *, .mini-card, .sem-card, .arc-row, .person, .info-card");
+  const revealTargets = document.querySelectorAll(".section .wrap > *, .mini-card, .sem-card, .arc-row, .person, .info-card, .theme");
   if (!reduce && "IntersectionObserver" in window) {
     document.documentElement.classList.add("js-reveal");
     const io = new IntersectionObserver(entries => entries.forEach(e => {
