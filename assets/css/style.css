@@ -149,8 +149,8 @@ strong { font-weight: 600; }
 .hero-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--amber), var(--uh-blue)); transition: height .25s var(--ease); z-index: 1; }
 .hero-card:hover::before { height: 7px; }
 .hero-date-block { background: var(--amber-05); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 16px; text-align: center; border-right: 1px solid #f3dfb8; gap: 2px; }
-.hero-date-dow, .hero-date-mon, .hero-date-time { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; color: var(--amber-ink); }
-.hero-date-day { font-family: var(--font-display); font-weight: 300; font-size: 5.4rem; line-height: .95; letter-spacing: -.05em; color: var(--navy-90); font-variation-settings: "opsz" 144; font-variant-numeric: lining-nums; }
+.hero-date-dow, .hero-date-mon, .hero-date-time { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .14em; font-size: .9rem; color: var(--amber-ink); }
+.hero-date-day { font-family: var(--font-display); font-weight: 300; font-size: 6.2rem; line-height: .95; letter-spacing: -.05em; color: var(--navy-90); font-variation-settings: "opsz" 144; font-variant-numeric: lining-nums; }
 .hero-date-time { margin-top: 8px; color: var(--muted); letter-spacing: .06em; }
 .hero-body { padding: 34px 38px 30px; }
 .hero-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -.025em; margin: 0 0 16px; font-variation-settings: "opsz" 96, "SOFT" 50; }
