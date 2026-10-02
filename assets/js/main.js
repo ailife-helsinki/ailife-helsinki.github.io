@@ -285,7 +285,6 @@
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
     }), { rootMargin: "0px 0px -8% 0px" });
     revealTargets.forEach((el, i) => { el.style.setProperty("--d", `${(i % 6) * 60}ms`); io.observe(el); });
-    document.querySelectorAll(".pathways").forEach(el => io.observe(el));
   }
 
   // --- Nav: mark current page, mobile toggle -------------------------------
