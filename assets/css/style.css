@@ -153,6 +153,9 @@ strong { font-weight: 600; }
 .hero-date-day { font-family: var(--font-display); font-weight: 300; font-size: 6.2rem; line-height: .95; letter-spacing: -.05em; color: var(--navy-90); font-variation-settings: "opsz" 144; font-variant-numeric: lining-nums; }
 .hero-date-time { margin-top: 8px; color: var(--muted); letter-spacing: .06em; }
 .hero-body { padding: 34px 38px 30px; }
+/* "Next seminar" label: a quiet italic serif line instead of a mono uppercase eyebrow.
+   The date and time are already in the date block, so they are not repeated here. */
+.next-label { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 1.05rem; letter-spacing: 0; color: var(--amber-ink); margin: 0 0 6px; font-variation-settings: "opsz" 24, "SOFT" 50; }
 .hero-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -.025em; margin: 0 0 16px; font-variation-settings: "opsz" 96, "SOFT" 50; }
 .hero-speakers, .sem-speakers { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0 0 14px; }
 .hero-card.has-photo { grid-template-columns: 200px 1fr 260px; }
@@ -282,26 +285,21 @@ strong { font-weight: 600; }
 .logo-item:hover { border-color: var(--uh-blue); transform: translateY(-1px); }
 .logo-item img { height: 52px; width: auto; max-width: 220px; object-fit: contain; }
 
-/* ---- Theme tiles (bio + AI + agents) ------------------------------------ */
-.theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 1000px) { .theme-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .theme-grid { grid-template-columns: 1fr; } }
-.theme { position: relative; border: 1px solid var(--line); border-radius: var(--r-2) var(--r-2) var(--r-2) 2px; padding: 26px 24px 22px; background: var(--white); overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s; }
-.theme::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--theme); }
-.theme:hover { transform: translateY(-2px); box-shadow: var(--lift); border-color: transparent; }
-.theme h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; letter-spacing: -.015em; margin: 14px 0 8px; }
-.theme p { color: var(--ink-2); font-size: .95rem; margin: 0; }
-.theme-icon { width: 56px; height: 56px; border-radius: 14px 14px 14px 4px; background: var(--theme-bg); display: grid; place-items: center; }
-.theme-icon svg { width: 34px; height: 34px; fill: none; stroke: var(--theme); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.theme-icon svg circle { fill: var(--theme-bg); }
-.theme-icon svg .ac { stroke: var(--amber); }
-.theme-icon svg circle.ac { fill: var(--amber); stroke: none; }
-.theme-azure { --theme: var(--t-azure); --theme-bg: var(--t-azure-bg); }
-.theme-anthocyanin { --theme: var(--t-antho); --theme-bg: var(--t-antho-bg); }
-.theme-lichen { --theme: var(--t-lichen); --theme-bg: var(--t-lichen-bg); }
-.theme-amber { --theme: var(--t-amber); --theme-bg: var(--t-amber-bg); }
-.js-reveal .theme { opacity: 0; transform: translateY(14px); transition: opacity .6s var(--ease) var(--d, 0ms), transform .6s var(--ease) var(--d, 0ms), box-shadow .2s var(--ease), border-color .2s; }
-.js-reveal .theme.in:hover { transform: translateY(-2px) !important; }
+/* ---- Topics: numbered editorial index ----------------------------------- */
+.topics { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 72px; align-items: start; }
+.topics-head h2 { margin-bottom: 14px; }
+.topics-lead { color: var(--muted); max-width: 32ch; }
+.topic-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.topic { display: grid; grid-template-columns: 64px 1fr; column-gap: 20px; padding: 26px 0 28px; border-bottom: 1px solid var(--line); }
+.topic-no { grid-row: span 2; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; color: var(--muted); padding-top: .55em; }
+.topic-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.6rem, 2.6vw, 2.1rem); letter-spacing: -.025em; line-height: 1.1; margin: 0 0 10px; font-variation-settings: "opsz" 96, "SOFT" 50; transition: color .2s; }
+.topic-text { color: var(--ink-2); margin: 0; max-width: 56ch; }
+.topic:hover .topic-title { color: var(--uh-blue); }
+.topic:hover .topic-no { color: var(--amber-ink); }
+@media (max-width: 900px) {
+  .topics { grid-template-columns: 1fr; gap: 28px; }
+  .topic { grid-template-columns: 44px 1fr; padding: 20px 0 22px; }
+}
 
 /* ---- Experimental bio motifs --------------------------------------------- */
 /* Cell blobs: soft organelle-like shapes, very slow morph, static under reduced motion. */

@@ -122,7 +122,7 @@
           <span class="hero-date-time">${esc(timeRange(next))}</span>
         </div>
         <div class="hero-body">
-          <p class="eyebrow eyebrow-amber">${today ? "Today" : "Next seminar"}<span class="sr-only"> on ${esc(longDate(next))}</span><span class="eyebrow-sep eyebrow-date" aria-hidden="true">·</span><span class="eyebrow-date" aria-hidden="true">${esc(monoDate(next))} · ${esc(timeRange(next))} Helsinki</span></p>
+          <p class="next-label">${today ? "Today" : "Next seminar"}<span class="sr-only"> on ${esc(longDate(next))}, ${esc(timeRange(next))} Helsinki time</span></p>
           <h2 class="hero-title">${esc(next.title && next.title !== "TBA" ? next.title : "Title to be announced")}</h2>
           <div class="hero-speakers">${sp}</div>
           ${next.notice ? `<p class="notice">${esc(next.notice)}</p>` : ""}
@@ -282,7 +282,7 @@
 
   // --- Scroll reveal (respects reduced motion) -----------------------------
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealTargets = document.querySelectorAll(".section .wrap > *, .mini-card, .sem-card, .arc-row, .person, .info-card, .theme");
+  const revealTargets = document.querySelectorAll(".section .wrap > *, .mini-card, .sem-card, .arc-row, .person, .info-card, .topic");
   if (!reduce && "IntersectionObserver" in window) {
     document.documentElement.classList.add("js-reveal");
     const io = new IntersectionObserver(entries => entries.forEach(e => {
