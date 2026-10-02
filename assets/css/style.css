@@ -312,7 +312,7 @@ strong { font-weight: 600; }
   background: linear-gradient(95deg, var(--amber-20) 0%, #ffe2a8 45%, var(--cyan) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   /* italic glyphs overhang their box; pad the painted area so the final "s" is not clipped */
-  display: inline-block; padding: 0 .14em 0 .04em; margin: 0 -.14em 0 -.04em;
+  display: inline-block; padding: .12em .14em .28em .04em; margin: -.12em -.14em -.28em -.04em;
 }
 /* Film grain on dark bands: static SVG noise, screen-blended. */
 .hero::after, .page-head::after, .cta-band::after {
