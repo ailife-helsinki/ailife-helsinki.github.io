@@ -104,8 +104,16 @@
       const v = venueOf(next);
       const p = parts(next);
       const today = isToday(next, now);
-      const sp = speakersHtml(next);
       const zoom = next.zoom || S.series.zoom;
+      const photoSpeakers = (next.speakers || []).filter(x => x.photo);
+      // Portraits get a dedicated right-hand column on wide screens; the inline
+      // small photo is kept for narrow screens (CSS shows one or the other).
+      const sp = speakersHtml(next);
+      const photoCol = photoSpeakers.length ? `
+        <div class="hero-photo-col" aria-hidden="true">
+          ${photoSpeakers.slice(0, 2).map(x => `<figure class="hero-photo"><img src="${esc(x.photo)}" alt="" loading="eager"><figcaption>${esc(x.name)}</figcaption></figure>`).join("")}
+        </div>` : "";
+      heroEl.classList.toggle("has-photo", photoSpeakers.length > 0);
       heroEl.innerHTML = `
         <div class="hero-date-block" aria-hidden="true">
           <span class="hero-date-dow">${esc(p.day.slice(0,3).toUpperCase())}</span>
@@ -132,7 +140,7 @@
             <a class="btn btn-ghost" href="ailife.ics" download>Subscribe (.ics)</a>
           </div>
           ${next.status !== "confirmed" ? `<p class="hero-status">${statusBadge(next)}</p>` : ""}
-        </div>`;
+        </div>${photoCol}`;
     }
   }
 
