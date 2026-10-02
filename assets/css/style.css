@@ -109,15 +109,22 @@ strong { font-weight: 600; }
 }
 .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 .hero {
-  /* Fill the first screen exactly: viewport height minus the sticky header. */
+  /* Fill most of the first screen (88%) so the next section peeks in, and let
+     the next-seminar card straddle the bottom edge: both say "keep scrolling". */
   --header-h: 72px;
-  min-height: calc(100vh - var(--header-h));
-  min-height: calc(100svh - var(--header-h));
-  display: flex; align-items: center;
-  padding: 32px 0 64px;
+  --overlap: 56px;
+  min-height: calc(88vh - var(--header-h));
+  min-height: calc(88svh - var(--header-h));
+  padding: 32px 0 0;
+  overflow: visible;
+  z-index: 2;                 /* keep the straddling card above the next section */
 }
-.hero-inner { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+.hero-inner { width: min(var(--wrap), 100% - 32px); margin-inline: auto; min-height: inherit; display: flex; flex-direction: column; }
+.hero-text { margin: auto 0; padding-bottom: 28px; }
+.hero > .hero-card { transform: translateY(var(--overlap)); z-index: 2; }
+.hero + .section { padding-top: calc(88px + var(--overlap, 56px)); }
 .hero-inner { position: relative; }
+.hero-inner > .hero-card { transform: translateY(var(--overlap)); position: relative; z-index: 2; }
 .series-title {
   font-family: var(--font-display); font-weight: 300; font-size: clamp(2.6rem, 6.6vw, 5.6rem);
   line-height: 1.08; letter-spacing: -.035em; margin: 0 0 22px; max-width: 15ch;
@@ -130,7 +137,7 @@ strong { font-weight: 600; }
 .series-title em { font-style: italic; font-weight: 300; color: var(--amber-20); }
 .eyebrow-hero { font-size: 1.05rem; color: rgba(255,255,255,.9); margin-bottom: 22px; text-transform: none; letter-spacing: .04em; }
 .eyebrow-hero strong { font-weight: 600; color: #fff; letter-spacing: .1em; }
-.series-meta { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .06em; color: rgba(255,255,255,.62); margin: 0 0 40px; }
+.series-meta { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .06em; color: rgba(255,255,255,.62); margin: 0; }
 
 /* ---- Next-seminar card: the one dramatic object ------------------------ */
 .hero-card {
@@ -181,7 +188,9 @@ strong { font-weight: 600; }
 .hero-lead { color: var(--ink-2); }
 .notice { background: var(--amber-05); border: 1px solid var(--amber-20); color: var(--amber-ink); border-radius: var(--r-2); padding: 8px 12px; font-size: .94rem; margin: 0 0 14px; }
 @media (max-width: 760px) {
-  .hero { padding: 24px 0 56px; min-height: 0; }
+  .hero { padding: 24px 0 48px; min-height: 0; --overlap: 0px; }
+  .hero-text { padding-bottom: 0; }
+  .hero + .section { padding-top: 56px; }
   .hero > .hero-canvas { opacity: .5; }
   .eyebrow-hero .eyebrow-sep { display: none; }
   .eyebrow-tagline { flex-basis: 100%; }
