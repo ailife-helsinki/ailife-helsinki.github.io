@@ -82,8 +82,8 @@
           const bonds = (base === "G" || base === "C") ? 3 : 2;   // G–C: 3 H-bonds, A–T: 2
           const gap = 1.7;                                         // px between bond lines
           const g = ctx.createLinearGradient(xa, y, xb, y);
-          g.addColorStop(0, `rgba(143,216,239,${.10 + .12 * (za + 1) / 2})`);
-          g.addColorStop(1, `rgba(255,215,153,${.10 + .12 * (zb + 1) / 2})`);
+          g.addColorStop(0, `rgba(143,216,239,${.08 + .09 * (za + 1) / 2})`);
+          g.addColorStop(1, `rgba(255,215,153,${.08 + .09 * (zb + 1) / 2})`);
           ctx.strokeStyle = g; ctx.lineWidth = .6;
           // bonds only in the middle of the rung, like hydrogen bonds between the bases
           const x0 = xa + (xb - xa) * .18, x1 = xa + (xb - xa) * .82;
@@ -109,7 +109,7 @@
     }
     function dot(x, y, z, r, g, b) {
       const depth = (z + 1) / 2;                           // 0 = behind, 1 = in front
-      ctx.fillStyle = `rgba(${r},${g},${b},${.13 + .40 * depth})`;
+      ctx.fillStyle = `rgba(${r},${g},${b},${.10 + .32 * depth})`;
       ctx.beginPath(); ctx.arc(x, y, 1.0 + 1.5 * depth, 0, Math.PI * 2); ctx.fill();
     }
 
