@@ -52,12 +52,16 @@
     function drawHelix(t) {
       if (!helixScale) { helix = []; return; }
       const narrow = w < 760;
-      const R = (narrow ? 34 : 84) * helixScale;          // helix radius
-      const pitch = (narrow ? 150 : 230) * helixScale;    // px per full turn
+      // Proportions follow B-DNA: pitch ≈ 1.7 × diameter (3.4 nm vs 2 nm),
+      // ~10 base pairs per turn, and the two strands ~130° apart so the
+      // major and minor grooves alternate as in real DNA.
+      const R = (narrow ? 22 : 54) * helixScale;          // helix radius
+      const pitch = R * 2 * 1.75;                          // px per full turn
+      const GROOVE = Math.PI * 0.72;                       // strand phase offset (≈130°)
       const wrapRight = (w + Math.min(1160, w - 32)) / 2;
       const cx = narrow ? w * .94 : Math.min(w * cxMax, wrapRight + cxOff);
       const tilt = tiltRad;                                // radians; more negative = top leans further left (data-tilt)
-      const step = narrow ? 9 : 7;
+      const step = pitch / 40;                             // 40 backbone dots per turn
       const spin = reduce ? 0 : t * 0.175;
       helix = [];
       ctx.save();
@@ -66,10 +70,10 @@
       let k = 0;
       for (let y = yStart; y < yEnd; y += step, k++) {
         const th = (y / pitch) * Math.PI * 2 + spin;
-        const za = Math.sin(th), zb = Math.sin(th + Math.PI);
-        const xa = cx + R * Math.cos(th), xb = cx + R * Math.cos(th + Math.PI);
-        // base-pair rungs every 5th step
-        if (k % 5 === 0) {
+        const za = Math.sin(th), zb = Math.sin(th + GROOVE);
+        const xa = cx + R * Math.cos(th), xb = cx + R * Math.cos(th + GROOVE);
+        // base-pair rungs: every 4th backbone dot = 10 per turn
+        if (k % 4 === 0) {
           const g = ctx.createLinearGradient(xa, y, xb, y);
           g.addColorStop(0, `rgba(143,216,239,${.07 + .09 * (za + 1) / 2})`);
           g.addColorStop(1, `rgba(255,215,153,${.07 + .09 * (zb + 1) / 2})`);
@@ -91,7 +95,7 @@
     function dot(x, y, z, r, g, b) {
       const depth = (z + 1) / 2;                           // 0 = behind, 1 = in front
       ctx.fillStyle = `rgba(${r},${g},${b},${.13 + .40 * depth})`;
-      ctx.beginPath(); ctx.arc(x, y, 1.1 + 1.9 * depth, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 1.0 + 1.5 * depth, 0, Math.PI * 2); ctx.fill();
     }
 
     // --- agent network ------------------------------------------------------
