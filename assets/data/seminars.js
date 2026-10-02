@@ -70,7 +70,7 @@ AILIFE.seminars = [
     end: "14:00",
     status: "confirmed",
     speakers: [
-      { name: "Olli Kallioniemi", affiliation: "FIMM, University of Helsinki", url: "" },
+      { name: "Olli Kallioniemi", affiliation: "FIMM, University of Helsinki", url: "https://researchportal.helsinki.fi/en/persons/olli-kallioniemi/", photo: "assets/img/people/olli-kallioniemi.jpg" },
     ],
     title: "TBA",
     abstract: "",
