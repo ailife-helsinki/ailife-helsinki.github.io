@@ -20,7 +20,11 @@
     const density = Number(canvas.dataset.network) || 1;
     const helixScale = Number(canvas.dataset.helix) || 0;
     const tiltRad = canvas.dataset.tilt !== undefined ? Number(canvas.dataset.tilt) : -0.30;
-    const cxFrac = canvas.dataset.cx !== undefined ? Number(canvas.dataset.cx) : 0.74;   // helix centre as a fraction of width (desktop)
+    // Helix centre (desktop): the smaller of a fraction of the screen width and the
+    // right edge of the 1160px content column plus an offset. Laptops get the
+    // fraction, large monitors stay close to the content instead of drifting right.
+    const cxMax = canvas.dataset.cxMax !== undefined ? Number(canvas.dataset.cxMax) : 0.80;
+    const cxOff = canvas.dataset.cxOff !== undefined ? Number(canvas.dataset.cxOff) : 40;
     let w = 0, h = 0, dpr = 1, nodes = [], helix = [], raf = 0, visible = true, t0 = performance.now();
     const LINK = 130;
 
@@ -50,7 +54,8 @@
       const narrow = w < 760;
       const R = (narrow ? 34 : 84) * helixScale;          // helix radius
       const pitch = (narrow ? 150 : 230) * helixScale;    // px per full turn
-      const cx = narrow ? w * .94 : w * cxFrac;
+      const wrapRight = (w + Math.min(1160, w - 32)) / 2;
+      const cx = narrow ? w * .94 : Math.min(w * cxMax, wrapRight + cxOff);
       const tilt = tiltRad;                                // radians; more negative = top leans further left (data-tilt)
       const step = narrow ? 9 : 7;
       const spin = reduce ? 0 : t * 0.35;
