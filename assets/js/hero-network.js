@@ -52,12 +52,12 @@
     function drawHelix(t) {
       if (!helixScale) { helix = []; return; }
       const narrow = w < 760;
-      // Proportions follow B-DNA: pitch ≈ 1.7 × diameter (3.4 nm vs 2 nm),
-      // ~10 base pairs per turn, and the two strands ~130° apart so the
-      // major and minor grooves alternate as in real DNA.
+      // Proportions follow B-DNA: pitch ≈ 1.7 × diameter (3.4 nm vs 2 nm) and
+      // ~10 base pairs per turn. The strands are drawn 180° apart (symmetric)
+      // rather than the real ~130° groove offset, which reads as busier.
       const R = (narrow ? 22 : 54) * helixScale;          // helix radius
       const pitch = R * 2 * 1.75;                          // px per full turn
-      const GROOVE = Math.PI * 0.72;                       // strand phase offset (≈130°)
+      const GROOVE = Math.PI;                              // strands opposite (180°): symmetric, calmer than real ~130° grooves
       const wrapRight = (w + Math.min(1160, w - 32)) / 2;
       const cx = narrow ? w * .94 : Math.min(w * cxMax, wrapRight + cxOff);
       const tilt = tiltRad;                                // radians; more negative = top leans further left (data-tilt)
