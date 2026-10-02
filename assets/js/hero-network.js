@@ -71,8 +71,8 @@
         // base-pair rungs every 5th step
         if (k % 5 === 0) {
           const g = ctx.createLinearGradient(xa, y, xb, y);
-          g.addColorStop(0, `rgba(143,216,239,${.10 + .12 * (za + 1) / 2})`);
-          g.addColorStop(1, `rgba(255,215,153,${.10 + .12 * (zb + 1) / 2})`);
+          g.addColorStop(0, `rgba(143,216,239,${.07 + .09 * (za + 1) / 2})`);
+          g.addColorStop(1, `rgba(255,215,153,${.07 + .09 * (zb + 1) / 2})`);
           ctx.strokeStyle = g; ctx.lineWidth = 1;
           ctx.beginPath(); ctx.moveTo(xa, y); ctx.lineTo(xb, y); ctx.stroke();
         }
@@ -90,7 +90,7 @@
     }
     function dot(x, y, z, r, g, b) {
       const depth = (z + 1) / 2;                           // 0 = behind, 1 = in front
-      ctx.fillStyle = `rgba(${r},${g},${b},${.18 + .55 * depth})`;
+      ctx.fillStyle = `rgba(${r},${g},${b},${.13 + .40 * depth})`;
       ctx.beginPath(); ctx.arc(x, y, 1.1 + 1.9 * depth, 0, Math.PI * 2); ctx.fill();
     }
 
