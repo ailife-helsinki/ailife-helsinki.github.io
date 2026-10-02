@@ -84,7 +84,7 @@ AILIFE.seminars = [
     title: "TBA",
     abstract: "",
     bio: "",
-    radar: "Esa Pitkänen",
+    radar: "Esa Pitkänen — introduction to the series and the month in AI",
     radarItems: [],
     venue: "biomedicum",
     zoom: "",

@@ -125,6 +125,7 @@
           <p class="eyebrow eyebrow-amber">${today ? "Today" : "Next seminar"}<span class="sr-only"> on ${esc(longDate(next))}</span><span class="eyebrow-sep eyebrow-date" aria-hidden="true">·</span><span class="eyebrow-date" aria-hidden="true">${esc(monoDate(next))} · ${esc(timeRange(next))} Helsinki</span></p>
           <h2 class="hero-title">${esc(next.title && next.title !== "TBA" ? next.title : "Title to be announced")}</h2>
           <div class="hero-speakers">${sp}</div>
+          ${next.radar ? `<p class="hero-radar"><span class="radar-dot" aria-hidden="true"></span><strong>AiLIFE Radar</strong> ${esc(next.radar)}</p>` : ""}
           ${next.notice ? `<p class="notice">${esc(next.notice)}</p>` : ""}
           <p class="hero-venue">
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
@@ -187,6 +188,7 @@
           <h3 class="sem-title">${esc(s.title && s.title !== "TBA" ? s.title : "Title to be announced")}</h3>
           ${s.notice ? `<p class="notice">${esc(s.notice)}</p>` : ""}
           <div class="sem-speakers">${sp}</div>
+          ${s.radar ? `<p class="sem-radar"><span class="radar-dot" aria-hidden="true"></span><strong>AiLIFE Radar</strong> ${esc(s.radar)}</p>` : ""}
           ${s.tags && s.tags.length ? `<p class="tags">${s.tags.map(tagHtml).join("")}</p>` : ""}
           ${details}
           ${links.length ? `<p class="sem-links">${links.join(" ")}</p>` : ""}
