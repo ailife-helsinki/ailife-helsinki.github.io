@@ -265,22 +265,6 @@
   document.querySelectorAll('[data-ailife="mailing-list"]').forEach(el => { if (S.series.mailingList) el.setAttribute("href", S.series.mailingList); });
   document.querySelectorAll('[data-ailife="contact-email"]').forEach(el => { el.setAttribute("href", "mailto:" + S.series.contactEmail); el.textContent = S.series.contactEmail; });
 
-  // --- "By the numbers" strip (index.html), computed from the data --------
-  const statsEl = document.querySelector('[data-ailife="stats"]');
-  if (statsEl) {
-    const seasonCount = all.filter(s => s.status !== "cancelled").length;
-    const confirmedSpeakers = new Set(all.flatMap(s => (s.speakers || []).map(x => x.name))).size;
-    const campuses = new Set(all.map(s => (venueOf(s).campus || "").trim()).filter(Boolean)).size || 1;
-    const items = [
-      [pad2(seasonCount), "monthly sessions this season"],
-      [pad2(past.length), "seminars held so far"],
-      [pad2(confirmedSpeakers), "speakers confirmed"],
-      ["60", "seats on site · unlimited on Zoom"],
-    ];
-    if (campuses > 1) items[3] = [pad2(campuses), "campuses"];
-    statsEl.innerHTML = items.map(([n, l]) => `<div class="stat"><span class="stat-num">${esc(n)}</span><span class="stat-label">${esc(l)}</span></div>`).join("");
-  }
-
   // --- Glass header once the page scrolls ---------------------------------
   const header = document.querySelector(".site-header");
   if (header) {
@@ -290,7 +274,7 @@
 
   // --- Scroll reveal (respects reduced motion) -----------------------------
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealTargets = document.querySelectorAll(".section .wrap > *, .mini-card, .sem-card, .arc-row, .person, .info-card, .stat");
+  const revealTargets = document.querySelectorAll(".section .wrap > *, .mini-card, .sem-card, .arc-row, .person, .info-card");
   if (!reduce && "IntersectionObserver" in window) {
     document.documentElement.classList.add("js-reveal");
     const io = new IntersectionObserver(entries => entries.forEach(e => {
