@@ -269,7 +269,10 @@
     } else { el.innerHTML = `<a href="ailife.ics" download>ailife.ics</a>`; }
   });
   document.querySelectorAll('[data-ailife="mailing-list"]').forEach(el => { if (S.series.mailingList) el.setAttribute("href", S.series.mailingList); });
-  document.querySelectorAll('[data-ailife="contact-email"]').forEach(el => { el.setAttribute("href", "mailto:" + S.series.contactEmail); el.textContent = S.series.contactEmail; });
+  document.querySelectorAll('[data-ailife="contact-email"]').forEach(el => {
+    if (S.series.contactEmail) { el.setAttribute("href", "mailto:" + S.series.contactEmail); el.textContent = S.series.contactEmail; }
+    else { el.setAttribute("href", "organizers.html"); if (el.textContent.trim() === "contact") el.textContent = "the organizers"; }
+  });
 
   // --- Glass header once the page scrolls ---------------------------------
   const header = document.querySelector(".site-header");

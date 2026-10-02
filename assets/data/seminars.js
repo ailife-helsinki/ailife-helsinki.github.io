@@ -35,9 +35,11 @@ AILIFE.series = {
   timezone: "Europe/Helsinki",
   // General Zoom link for the hybrid stream. Leave empty until announced.
   zoom: "",
-  // Mailing list signup — replace with the real list page or mailto.
-  mailingList: "mailto:esa.pitkanen@helsinki.fi?subject=AiLIFE%20seminar%20mailing%20list",
-  contactEmail: "esa.pitkanen@helsinki.fi",
+  // Mailing list signup — set to the real list page (or a mailto:) when available;
+  // until then the links point to the organizers page.
+  mailingList: "organizers.html",
+  // Contact e-mail is intentionally empty: the site says "contact the organizers".
+  contactEmail: "",
 };
 
 AILIFE.venues = {
