@@ -83,7 +83,7 @@ AILIFE.seminars = [
     speakers: [
       { name: "Olli Kallioniemi", affiliation: "FIMM, University of Helsinki", url: "https://researchportal.helsinki.fi/en/persons/olli-kallioniemi/", photo: "assets/img/people/olli-kallioniemi.jpg" },
     ],
-    title: "TBA",
+    title: "Towards AI-Native Molecular Medicine Research: A Life Scientist's Perspective",
     abstract: "",
     bio: "",
     radar: "Esa Pitkänen — introduction to the series and the month in AI",
