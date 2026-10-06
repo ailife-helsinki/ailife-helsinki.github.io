@@ -582,7 +582,7 @@ html.gated { background: var(--navy-90); }
 .hero-stack .cc-when { font-size: .8rem; }
 .hero-stack .cc-body { padding: 22px 24px 24px; }
 .hero-stack .next-label { font-size: 1.02rem; margin-bottom: 6px; }
-.hero-stack .cc-title { font-size: 1.35rem; margin-bottom: 16px; }
+.hero-stack .cc-title { font-size: 1.6rem; line-height: 1.18; margin-bottom: 16px; }
 .hero-stack .cc-speakers { margin-bottom: 14px; }
 .hero-stack .cc-speakers .speaker-photo { width: 54px; height: 54px; }
 .hero-stack .cc-speakers .speaker strong { font-size: 1.06rem; }
