@@ -593,3 +593,48 @@ html.gated { background: var(--navy-90); }
 .hero:has(.hero-stack) { align-items: flex-start; padding-top: 72px; padding-bottom: 72px; }
 .hero-stack .hero-text { margin-bottom: 88px; }
 @media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 28px; padding-bottom: 48px; } .hero-stack .hero-text { margin-bottom: 36px; } }
+
+/* ==== Round-4 refinements (Cradle / AI Engineer / Inceptive / GitHub Universe) ==== */
+/* One-line headline: one emphasis device only - italic + one gentle gradient across the whole phrase. */
+.hero-stack .series-title { color: #f5f2ea; }
+.hero-stack .series-title .title-em {
+  font-style: italic; font-weight: 300;
+  background: linear-gradient(90deg, #ffd799 0%, #ffe6bd 55%, #cfe9f5 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  padding: .1em .12em .22em 0; margin: -.1em -.12em -.22em 0; display: inline-block;
+}
+.hero-stack .eyebrow-hero { margin-bottom: 20px; }
+/* Amber rule spans the whole about text */
+.hero-about { padding-left: 20px; }
+.hero-about::before { top: .35em; bottom: 3.2em; height: auto; background: linear-gradient(180deg, #ffb000 0%, rgba(255,176,0,.12) 100%); }
+/* Chips: tidier pills */
+.hero-chips { margin-top: 24px; gap: 8px; }
+.hero-chips .chip { height: 28px; display: inline-flex; align-items: center; padding: 0 12px; background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.72); }
+/* Card: one amber element only (the date strip); calmer shadow, regular radius */
+.hero-stack .hero-card-compact { border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.08); }
+.hero-stack .hero-card-compact::before { display: none; }
+.hero-stack .cc-actions .btn { height: 40px; padding: 0 18px; font-weight: 500; font-size: .9rem; }
+.hero-stack .cc-actions .btn-ghost { color: var(--ink); border-color: #dedad1; }
+.hero-stack .cc-actions .btn-ghost:hover { border-color: var(--uh-blue); color: var(--uh-blue); background: transparent; }
+/* Background: deeper navy base, softer amber glow, network kept away from the headline */
+.hero:has(.hero-stack) {
+  background:
+    radial-gradient(700px 420px at 78% 62%, rgba(0,90,148,.34), transparent 70%),
+    radial-gradient(900px 480px at 92% -10%, rgba(255,176,0,.08), transparent 60%),
+    linear-gradient(160deg, #030b14 0%, #001929 55%, #00263f 100%);
+}
+.hero:has(.hero-stack) > .hero-canvas { opacity: .55;
+  -webkit-mask-image: radial-gradient(70% 80% at 75% 60%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(70% 80% at 75% 60%, #000 30%, transparent 75%); }
+/* Vertical rhythm */
+.hero:has(.hero-stack) { padding-top: 64px; padding-bottom: 72px; }
+.hero-stack .hero-text { margin-bottom: 72px; }
+@media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 32px; padding-bottom: 48px; } .hero-stack .eyebrow-hero { margin-bottom: 14px; } .hero-stack .hero-text { margin-bottom: 32px; } }
+
+/* Amber rule exactly alongside the two paragraphs (not the chips). */
+.hero-about { padding-left: 0; }
+.hero-about::before { display: none; }
+.hero-copy { position: relative; padding-left: 20px; }
+.hero-copy::before { content: ""; position: absolute; left: 0; top: .35em; bottom: 1.4em; width: 2px; border-radius: 2px; background: linear-gradient(180deg, #ffb000 0%, rgba(255,176,0,.12) 100%); }
+.hero-about .hero-chips { padding-left: 20px; }
+@media (max-width: 760px) { .hero-copy, .hero-about .hero-chips { padding-left: 16px; } }
