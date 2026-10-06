@@ -549,3 +549,8 @@ html.gated { background: var(--navy-90); }
 .hero:has(.hero-stack) { align-items: flex-start; padding-top: 56px; }
 .hero-about .hero-desc { font-size: 1.12rem; line-height: 1.65; }
 @media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 28px; } .hero-about .hero-desc { font-size: 1.04rem; } }
+/* Hero layout balance: more room between title and the about/card row,
+   content centred vertically so the leftover space is split above and below. */
+.hero:has(.hero-stack) { align-items: center; padding-top: 48px; padding-bottom: 80px; }
+.hero-stack .hero-text { margin-bottom: 60px; }
+@media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 28px; padding-bottom: 48px; } .hero-stack .hero-text { margin-bottom: 32px; } }
