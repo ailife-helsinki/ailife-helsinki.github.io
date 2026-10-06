@@ -119,7 +119,7 @@
         heroEl.innerHTML = `
         <div class="cc-date">
           <span class="cc-day">${pad2(p.d)}</span>
-          <span class="cc-when"><span>${esc(p.day)}</span><span>${esc(p.monLong)} ${p.y}</span><span>${esc(timeRange(next))} Helsinki time</span></span>
+          <span class="cc-when"><span>${esc(p.day)}, ${esc(p.monLong)} ${p.y}</span><span>${esc(timeRange(next))} Helsinki time</span></span>
         </div>
         <div class="cc-body">
           <p class="next-label">${today ? "Today" : "Next seminar"}<span class="sr-only"> on ${esc(longDate(next))}</span></p>
