@@ -577,3 +577,16 @@ html.gated { background: var(--navy-90); }
 /* Card: keep white, softer shadow and a hairline so it sits on the dark band */
 .hero-stack .hero-card-compact { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 24px 60px rgba(0,0,0,.35); }
 @media (max-width: 760px) { .hero-about { padding-left: 16px; } }
+/* Slightly larger card contents */
+.hero-stack .cc-date { padding: 18px 24px 16px; }
+.hero-stack .cc-day { font-size: 3.8rem; }
+.hero-stack .cc-when { font-size: .8rem; }
+.hero-stack .cc-body { padding: 22px 24px 24px; }
+.hero-stack .next-label { font-size: 1.02rem; margin-bottom: 6px; }
+.hero-stack .cc-title { font-size: 1.35rem; margin-bottom: 16px; }
+.hero-stack .cc-speakers { margin-bottom: 14px; }
+.hero-stack .cc-speakers .speaker-photo { width: 54px; height: 54px; }
+.hero-stack .cc-speakers .speaker strong { font-size: 1.06rem; }
+.hero-stack .cc-speakers .speaker-aff { font-size: .9rem; }
+.hero-stack .cc-venue { font-size: .95rem; margin-bottom: 18px; }
+.hero-stack .cc-actions .btn { padding: 10px 18px; font-size: .92rem; }
