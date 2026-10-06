@@ -524,3 +524,7 @@ html.gated { background: var(--navy-90); }
 .hero-about .series-meta { margin-top: 18px; }
 @media (max-width: 900px) { .hero-row { grid-template-columns: 1fr; gap: 28px; } }
 .hero:has(.hero-stack) { padding-bottom: 84px; }
+/* Single-line title in the stacked hero (wraps naturally on narrow screens). */
+.hero-stack .series-title { font-size: clamp(2rem, 4.4vw, 3.6rem); max-width: none; }
+@media (min-width: 901px) { .hero-stack .series-title { white-space: nowrap; } }
+@media (min-width: 901px) and (max-width: 1160px) { .hero-stack .eyebrow-hero { font-size: .88rem; letter-spacing: .02em; } }
