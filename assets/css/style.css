@@ -528,3 +528,18 @@ html.gated { background: var(--navy-90); }
 .hero-stack .series-title { font-size: clamp(2rem, 4.4vw, 3.6rem); max-width: none; }
 @media (min-width: 901px) { .hero-stack .series-title { white-space: nowrap; } }
 @media (min-width: 901px) and (max-width: 1160px) { .hero-stack .eyebrow-hero { font-size: .88rem; letter-spacing: .02em; } }
+/* Smaller, calmer card in the stacked hero. */
+.hero-stack .hero-row { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 72px; align-items: start; }
+.hero-stack .cc-date { padding: 14px 20px 12px; gap: 12px; }
+.hero-stack .cc-day { font-size: 3.2rem; }
+.hero-stack .cc-when { font-size: .74rem; }
+.hero-stack .cc-body { padding: 16px 20px 18px; }
+.hero-stack .next-label { font-size: .95rem; margin-bottom: 4px; }
+.hero-stack .cc-title { font-size: 1.15rem; margin-bottom: 12px; }
+.hero-stack .cc-speakers { margin-bottom: 10px; }
+.hero-stack .cc-speakers .speaker-photo { width: 44px; height: 44px; }
+.hero-stack .cc-speakers .speaker strong { font-size: 1rem; }
+.hero-stack .cc-speakers .speaker-aff { font-size: .85rem; }
+.hero-stack .cc-venue { font-size: .88rem; margin-bottom: 14px; }
+.hero-stack .cc-actions .btn { padding: 8px 14px; font-size: .85rem; }
+@media (max-width: 900px) { .hero-stack .hero-row { grid-template-columns: 1fr; gap: 28px; } }
