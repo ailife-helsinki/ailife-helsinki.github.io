@@ -252,9 +252,9 @@ strong { font-weight: 600; }
 .lead { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.45; color: var(--ink); letter-spacing: -.01em; font-variation-settings: "opsz" 48, "SOFT" 50; }
 .lead-narrow { font-size: 1.08rem; color: var(--ink-2); max-width: 68ch; }
 .grid-2 > div > p { max-width: 68ch; }
-.page-head { padding: 28px 0; min-height: 276px; display: flex; align-items: center; }
+.page-head { padding: 36px 0; min-height: 300px; display: flex; align-items: center; }
 .page-head > .wrap { width: min(var(--wrap), 100% - 32px); position: relative; }
-@media (max-width: 760px) { .page-head { min-height: 210px; padding: 24px 0; } }
+@media (max-width: 760px) { .page-head { min-height: 240px; padding: 28px 0; } }
 .page-head h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.4rem, 5.4vw, 4.2rem); letter-spacing: -.035em; line-height: 1; margin: 0 0 18px; font-variation-settings: "opsz" 144, "SOFT" 50; }
 .page-head .lead-narrow { color: rgba(255,255,255,.82); }
 .page-head a:not(.btn) { color: var(--amber-20); }
@@ -642,12 +642,3 @@ html.gated { background: var(--navy-90); }
 .hero:has(.hero-stack) > .hero-canvas { opacity: .9;
   -webkit-mask-image: radial-gradient(120% 120% at 70% 60%, #000 45%, rgba(0,0,0,.45) 85%, rgba(0,0,0,.3) 100%);
           mask-image: radial-gradient(120% 120% at 70% 60%, #000 45%, rgba(0,0,0,.45) 85%, rgba(0,0,0,.3) 100%); }
-
-/* Shorter subpage heads: slightly tighter title and actions so all four share one height. */
-.page-head h1 { margin-bottom: 12px; }
-.page-head .page-actions { margin-top: 10px; }
-/* Subpage heads: more air between title and text, less below the text; height unchanged. */
-.page-head { align-items: flex-end; padding-top: 28px; padding-bottom: 24px; }
-.page-head h1 { margin-bottom: 20px; }
-.page-head .lead-narrow { margin-bottom: 0; }
-.page-head .page-actions { margin-top: 16px; }
