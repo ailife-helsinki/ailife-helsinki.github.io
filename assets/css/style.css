@@ -493,7 +493,8 @@ html.gated { background: var(--navy-90); }
 .hero-sub { font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: #fff; font-weight: 500; margin: 0 0 14px; max-width: 46ch; }
 .hero-desc { color: rgba(255,255,255,.78); font-size: 1rem; line-height: 1.65; max-width: 62ch; margin: 0 0 14px; }
 .hero-desc + .series-meta { margin-top: 10px; }
-.hero-desc strong { color: #fff; }
+.hero-split .title-name { display: block; font-weight: 500; letter-spacing: -.02em; }
+.hero-split .series-title + .hero-desc { margin-top: 22px; }
 .hero-card-compact { display: block; grid-template-columns: none; border-radius: 18px 18px 18px 4px; }
 .cc-date { display: flex; align-items: center; gap: 14px; background: var(--amber-05); border-bottom: 1px solid #f3dfb8; padding: 18px 22px 14px; }
 .cc-day { font-family: var(--font-display); font-weight: 300; font-size: 4rem; line-height: .9; letter-spacing: -.05em; color: var(--navy-90); font-variation-settings: "opsz" 144; }
@@ -510,3 +511,6 @@ html.gated { background: var(--navy-90); }
 @media (max-width: 1000px) {
   .hero-split { grid-template-columns: 1fr; gap: 32px; }
 }
+/* Long tagline in the hero eyebrow: keep the dot inline with the first line. */
+.hero-split .eyebrow-hero { display: block; line-height: 1.6; max-width: 46ch; }
+.hero-split .eyebrow-hero::before { display: inline-block; margin-right: 10px; vertical-align: .12em; }
