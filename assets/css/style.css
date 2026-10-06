@@ -549,3 +549,13 @@ html.gated { background: var(--navy-90); }
 .hero:has(.hero-stack) { align-items: flex-start; padding-top: 56px; }
 .hero-about .hero-desc { font-size: 1.12rem; line-height: 1.65; }
 @media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 28px; } .hero-about .hero-desc { font-size: 1.04rem; } }
+/* Trial: card takes the right two thirds, using the wide (released) card layout. */
+.hero-stack .hero-row:has(.hero-card-wide) { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; }
+.hero-card-wide.has-photo { grid-template-columns: 150px 1fr 190px; }
+.hero-card-wide .hero-date-day { font-size: 4.6rem; }
+.hero-card-wide .hero-body { padding: 26px 26px 24px; }
+.hero-card-wide .hero-title { font-size: 1.55rem; }
+.hero-card-wide .hero-photo img { width: 150px; height: 150px; }
+.hero-card-wide .hero-photo-col { padding: 24px 24px 24px 0; }
+.hero-card-wide .hero-actions .btn { padding: 9px 15px; font-size: .88rem; }
+@media (max-width: 1100px) { .hero-stack .hero-row:has(.hero-card-wide) { grid-template-columns: 1fr; } }
