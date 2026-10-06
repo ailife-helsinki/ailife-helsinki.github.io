@@ -525,7 +525,9 @@ html.gated { background: var(--navy-90); }
 @media (max-width: 900px) { .hero-row { grid-template-columns: 1fr; gap: 28px; } }
 .hero:has(.hero-stack) { padding-bottom: 84px; }
 /* Single-line title in the stacked hero (wraps naturally on narrow screens). */
-.hero-stack .series-title { font-size: clamp(2rem, 4.4vw, 3.6rem); max-width: none; }
+/* As large as possible while still fitting one line in the content column
+   (measured: the title is ~14.5x its font size wide). */
+.hero-stack .series-title { font-size: clamp(2rem, calc(min(100vw - 32px, 1160px) / 14.8), 5.6rem); max-width: none; }
 @media (min-width: 901px) { .hero-stack .series-title { white-space: nowrap; } }
 @media (min-width: 901px) and (max-width: 1160px) { .hero-stack .eyebrow-hero { font-size: .88rem; letter-spacing: .02em; } }
 /* Smaller, calmer card in the stacked hero. */
