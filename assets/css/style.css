@@ -532,7 +532,7 @@ html.gated { background: var(--navy-90); }
 @media (min-width: 901px) and (max-width: 1160px) { .hero-stack .eyebrow-hero { font-size: .88rem; letter-spacing: .02em; } }
 /* Smaller, calmer card in the stacked hero. */
 .hero-stack .hero-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
-.hero-stack .cc-date { padding: 14px 20px 12px; gap: 12px; }
+.hero-stack .cc-date { padding: 14px 20px 12px; gap: 22px; }
 .hero-stack .cc-day { font-size: 3.2rem; }
 .hero-stack .cc-when { font-size: .74rem; }
 .hero-stack .cc-body { padding: 16px 20px 18px; }
