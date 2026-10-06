@@ -486,20 +486,21 @@ html.gated { background: var(--navy-90); }
 .gate-err { color: var(--bad); font-size: .9rem; margin: 10px 0 0 !important; }
 
 /* ---- Two-column hero: about text left, compact next-seminar card right ---- */
-.hero-split { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 56px; align-items: center; }
+.hero-split { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 48px; align-items: center; }
 .hero-split .hero-text { padding-bottom: 0; }
 .hero-split .series-title { font-size: clamp(2.3rem, 4.4vw, 4.2rem); max-width: none; margin-bottom: 18px; }
 .hero-split .series-title em { display: block; }
 .hero-sub { font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: #fff; font-weight: 500; margin: 0 0 14px; max-width: 46ch; }
-.hero-desc { color: rgba(255,255,255,.78); font-size: 1rem; line-height: 1.65; max-width: 56ch; margin: 0 0 22px; }
+.hero-desc { color: rgba(255,255,255,.78); font-size: 1rem; line-height: 1.65; max-width: 62ch; margin: 0 0 14px; }
+.hero-desc + .series-meta { margin-top: 10px; }
 .hero-desc strong { color: #fff; }
 .hero-card-compact { display: block; grid-template-columns: none; border-radius: 18px 18px 18px 4px; }
-.cc-date { display: flex; align-items: center; gap: 16px; background: var(--amber-05); border-bottom: 1px solid #f3dfb8; padding: 20px 26px 16px; }
+.cc-date { display: flex; align-items: center; gap: 14px; background: var(--amber-05); border-bottom: 1px solid #f3dfb8; padding: 18px 22px 14px; }
 .cc-day { font-family: var(--font-display); font-weight: 300; font-size: 4rem; line-height: .9; letter-spacing: -.05em; color: var(--navy-90); font-variation-settings: "opsz" 144; }
 .cc-when { display: flex; flex-direction: column; font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; color: var(--amber-ink); gap: 2px; }
 .cc-when span:last-child { color: var(--muted); }
-.cc-body { padding: 22px 26px 24px; }
-.cc-title { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 14px; font-variation-settings: "opsz" 72, "SOFT" 50; }
+.cc-body { padding: 20px 22px 22px; }
+.cc-title { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 14px; font-variation-settings: "opsz" 72, "SOFT" 50; }
 .cc-speakers { display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 0 0 14px; }
 .cc-speakers .speaker-photo { width: 52px; height: 52px; }
 .cc-venue { color: var(--ink-2); font-size: .95rem; margin: 0 0 18px; line-height: 1.7; }
