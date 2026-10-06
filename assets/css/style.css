@@ -638,3 +638,7 @@ html.gated { background: var(--navy-90); }
 .hero-copy::before { content: ""; position: absolute; left: 0; top: .35em; bottom: 1.4em; width: 2px; border-radius: 2px; background: linear-gradient(180deg, #ffb000 0%, rgba(255,176,0,.12) 100%); }
 .hero-about .hero-chips { padding-left: 20px; }
 @media (max-width: 760px) { .hero-copy, .hero-about .hero-chips { padding-left: 16px; } }
+/* Stronger network: full opacity, mask only softly dims the area behind the headline/intro. */
+.hero:has(.hero-stack) > .hero-canvas { opacity: .9;
+  -webkit-mask-image: radial-gradient(120% 120% at 70% 60%, #000 45%, rgba(0,0,0,.45) 85%, rgba(0,0,0,.3) 100%);
+          mask-image: radial-gradient(120% 120% at 70% 60%, #000 45%, rgba(0,0,0,.45) 85%, rgba(0,0,0,.3) 100%); }
