@@ -646,3 +646,8 @@ html.gated { background: var(--navy-90); }
 /* Shorter subpage heads: slightly tighter title and actions so all four share one height. */
 .page-head h1 { margin-bottom: 12px; }
 .page-head .page-actions { margin-top: 10px; }
+/* Subpage heads: more air between title and text, less below the text; height unchanged. */
+.page-head { align-items: flex-end; padding-top: 28px; padding-bottom: 24px; }
+.page-head h1 { margin-bottom: 20px; }
+.page-head .lead-narrow { margin-bottom: 0; }
+.page-head .page-actions { margin-top: 16px; }
