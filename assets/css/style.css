@@ -589,3 +589,7 @@ html.gated { background: var(--navy-90); }
 .hero-stack .cc-speakers .speaker-aff { font-size: .9rem; }
 .hero-stack .cc-venue { font-size: .95rem; margin-bottom: 18px; }
 .hero-stack .cc-actions .btn { padding: 10px 18px; font-size: .92rem; }
+/* Spacing: less above the eyebrow, more between the title and the about/card row. */
+.hero:has(.hero-stack) { align-items: flex-start; padding-top: 72px; padding-bottom: 72px; }
+.hero-stack .hero-text { margin-bottom: 88px; }
+@media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 28px; padding-bottom: 48px; } .hero-stack .hero-text { margin-bottom: 36px; } }
