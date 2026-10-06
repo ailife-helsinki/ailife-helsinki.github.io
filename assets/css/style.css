@@ -515,3 +515,12 @@ html.gated { background: var(--navy-90); }
 /* Long tagline in the hero eyebrow: keep the dot inline with the first line. */
 .hero-split .eyebrow-hero { display: block; line-height: 1.6; max-width: none; }
 .hero-split .eyebrow-hero::before { display: none; }
+
+/* ---- Stacked hero: eyebrow + title full width, then about | card (1:1) ---- */
+.hero-stack .hero-text { padding-bottom: 0; margin-bottom: 36px; }
+.hero-stack .series-title { margin-bottom: 0; }
+.hero-row { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.hero-about .hero-desc { max-width: 60ch; }
+.hero-about .series-meta { margin-top: 18px; }
+@media (max-width: 900px) { .hero-row { grid-template-columns: 1fr; gap: 28px; } }
+.hero:has(.hero-stack) { padding-bottom: 84px; }
