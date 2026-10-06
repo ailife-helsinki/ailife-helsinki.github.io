@@ -114,6 +114,26 @@
           ${photoSpeakers.slice(0, 2).map(x => `<figure class="hero-photo"><img src="${esc(x.photo)}" alt="" loading="eager"><figcaption>${esc(x.name)}</figcaption></figure>`).join("")}
         </div>` : "";
       heroEl.classList.toggle("has-photo", photoSpeakers.length > 0);
+      if (heroEl.classList.contains("hero-card-compact")) {
+        // Compact, vertical card for the two-column hero.
+        heroEl.innerHTML = `
+        <div class="cc-date">
+          <span class="cc-day">${pad2(p.d)}</span>
+          <span class="cc-when"><span>${esc(p.day)}</span><span>${esc(p.monLong)} ${p.y}</span><span>${esc(timeRange(next))} Helsinki time</span></span>
+        </div>
+        <div class="cc-body">
+          <p class="next-label">${today ? "Today" : "Next seminar"}<span class="sr-only"> on ${esc(longDate(next))}</span></p>
+          <h2 class="cc-title">${esc(next.title && next.title !== "TBA" ? next.title : "Title to be announced")}</h2>
+          <div class="cc-speakers">${speakersHtml(next)}</div>
+          ${next.notice ? `<p class="notice">${esc(next.notice)}</p>` : ""}
+          <p class="cc-venue"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>${v.mapUrl ? `<a href="${esc(v.mapUrl)}" target="_blank" rel="noopener">${esc(v.name)}${v.room ? ", " + esc(v.room) : ""}</a>` : esc(v.name)} <span class="hybrid-pill">+ Zoom</span></p>
+          <div class="cc-actions">
+            ${zoom ? `<a class="btn btn-primary" href="${esc(zoom)}" target="_blank" rel="noopener">Join on Zoom</a>` : `<a class="btn btn-primary" href="join.html">How to attend</a>`}
+            <a class="btn btn-ghost" href="${googleCalUrl(next)}" target="_blank" rel="noopener">Add to calendar</a>
+          </div>
+          ${next.status !== "confirmed" ? `<p class="hero-status">${statusBadge(next)}</p>` : ""}
+        </div>`;
+      } else {
       heroEl.innerHTML = `
         <div class="hero-date-block" aria-hidden="true">
           <span class="hero-date-dow">${esc(p.day.slice(0,3).toUpperCase())}</span>
@@ -140,6 +160,7 @@
           </div>
           ${next.status !== "confirmed" ? `<p class="hero-status">${statusBadge(next)}</p>` : ""}
         </div>${photoCol}`;
+      }
     }
   }
 
