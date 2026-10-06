@@ -545,3 +545,7 @@ html.gated { background: var(--navy-90); }
 .hero-stack .cc-venue { font-size: .88rem; margin-bottom: 14px; }
 .hero-stack .cc-actions .btn { padding: 8px 14px; font-size: .85rem; }
 @media (max-width: 900px) { .hero-stack .hero-row { grid-template-columns: 1fr; gap: 28px; } }
+/* Stacked hero: start content near the top instead of centring it vertically. */
+.hero:has(.hero-stack) { align-items: flex-start; padding-top: 56px; }
+.hero-about .hero-desc { font-size: 1.12rem; line-height: 1.65; }
+@media (max-width: 760px) { .hero:has(.hero-stack) { padding-top: 28px; } .hero-about .hero-desc { font-size: 1.04rem; } }
