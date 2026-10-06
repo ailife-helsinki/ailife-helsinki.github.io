@@ -567,11 +567,10 @@ html.gated { background: var(--navy-90); }
 .hero-stack .eyebrow-hero { color: rgba(255,255,255,.62); }
 .hero-stack .eyebrow-hero .eb-name { color: var(--amber); }
 .hero-stack .eyebrow-hero::before { display: none; }
-/* About: amber rule, brighter lead-in sentence */
+/* About: amber rule beside the text */
 .hero-about { position: relative; padding-left: 22px; }
 .hero-about::before { content: ""; position: absolute; left: 0; top: .45em; width: 2px; height: 4.2em; background: linear-gradient(180deg, var(--amber), rgba(255,176,0,0)); border-radius: 2px; }
 .hero-about .hero-desc { color: rgba(255,255,255,.7); }
-.hero-about .lead-in { color: #fff; }
 .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
 .hero-chips .chip { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; color: rgba(255,255,255,.82); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-pill); padding: 5px 12px; }
 /* Card: keep white, softer shadow and a hairline so it sits on the dark band */
