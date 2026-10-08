@@ -630,3 +630,36 @@ code { font-family: var(--font-mono); font-size: .86em; background: var(--paper-
 /* Registration */
 .btn-small.btn-register { background: var(--uh-blue); color: #fff; border-color: var(--uh-blue); }
 .btn-small.btn-register:hover { background: var(--navy-80); color: #fff; }
+
+/* ==== Header, hero and footer share one deep-navy base (no black/blue seam) ==== */
+:root { --ink-deep: #030b14; }
+.site-header { background: var(--ink-deep); border-bottom: 1px solid rgba(255,255,255,.05); }
+.site-header.is-scrolled { background: rgba(3, 11, 20, .82); border-bottom-color: rgba(255,255,255,.08); }
+.nav a[aria-current="page"] { background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+@media (max-width: 760px) { .nav { background: var(--ink-deep); border-bottom-color: rgba(255,255,255,.06); } }
+/* Dark bands start from the same colour as the header */
+.page-head, .cta-band {
+  background:
+    radial-gradient(900px 480px at 88% -8%, rgba(255,176,0,.10), transparent 60%),
+    radial-gradient(700px 500px at -5% 110%, rgba(0,90,148,.35), transparent 60%),
+    linear-gradient(180deg, var(--ink-deep) 0%, #001929 45%, #00263f 100%);
+}
+.hero:has(.hero-stack) {
+  background:
+    radial-gradient(700px 420px at 78% 62%, rgba(0,90,148,.34), transparent 70%),
+    radial-gradient(900px 480px at 92% -10%, rgba(255,176,0,.08), transparent 60%),
+    linear-gradient(180deg, var(--ink-deep) 0%, #001929 55%, #00263f 100%);
+}
+.site-footer { background: var(--ink-deep); }
+.footer-bottom { border-top-color: rgba(255,255,255,.07); }
+/* Header floats over the dark band at the top (transparent), and turns into
+   deep-navy glass once the page scrolls - one continuous surface, no seam. */
+.site-header:not(.is-scrolled) { background: transparent; border-bottom-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+main > section:first-child { margin-top: -72px; }
+.hero:has(.hero-stack) { padding-top: calc(64px + 72px); min-height: min(100vh, 932px); min-height: min(100svh, 932px); }
+.page-head { padding-top: calc(36px + 72px); min-height: calc(300px + 72px); }
+@media (max-width: 760px) {
+  .hero:has(.hero-stack) { padding-top: calc(32px + 72px); min-height: 0; }
+  .page-head { padding-top: calc(28px + 72px); min-height: calc(240px + 72px); }
+  body.nav-open .site-header { background: var(--ink-deep); }
+}
