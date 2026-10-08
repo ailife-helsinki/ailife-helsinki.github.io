@@ -17,7 +17,7 @@
 //   radar       who gave the 10-15 min "AiLIFE Radar" opener, optional
 //   radarItems  the Radar round-up, shown on past.html once filled in, optional:
 //               [{ title: "ESM3 released", url: "https://...", note: "one-line why it matters" }, ...]
-//   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "viikki", "online"
+//   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "viikki", "online", "tba" (not yet confirmed)
 //   notice      short highlighted message, optional (e.g. "Room changed to Hall 2")
 //   zoom        URL string, optional (leave "" until announced)
 //   recording   URL string, optional (filled in after the talk)
@@ -64,6 +64,14 @@ AILIFE.venues = {
     campus: "Viikki campus",
     mapUrl: "https://maps.google.com/?q=Viikki+campus,+University+of+Helsinki",
   },
+  // Placeholder until the campus and room are confirmed (Meilahti or Viikki).
+  tba: {
+    name: "Location to be confirmed",
+    room: "",
+    address: "",
+    campus: "",
+    mapUrl: "",
+  },
   online: {
     name: "Online (Zoom)",
     room: "",
@@ -94,12 +102,12 @@ AILIFE.seminars = [
     slides: "",
     tags: ["opening session"],
   },
-  { id: "2026-11-24", date: "2026-11-24", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum3", tags: [] },
-  { id: "2026-12-22", date: "2026-12-22", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
-  { id: "2027-01-26", date: "2027-01-26", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
-  { id: "2027-02-23", date: "2027-02-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
-  { id: "2027-03-23", date: "2027-03-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
-  { id: "2027-04-13", date: "2027-04-13", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
-  { id: "2027-05-11", date: "2027-05-11", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
-  { id: "2027-06-08", date: "2027-06-08", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "biomedicum", tags: [] },
+  { id: "2026-11-24", date: "2026-11-24", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2026-12-22", date: "2026-12-22", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2027-01-26", date: "2027-01-26", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2027-02-23", date: "2027-02-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2027-03-23", date: "2027-03-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2027-04-13", date: "2027-04-13", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2027-05-11", date: "2027-05-11", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  { id: "2027-06-08", date: "2027-06-08", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
 ];
