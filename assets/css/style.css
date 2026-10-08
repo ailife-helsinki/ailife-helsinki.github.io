@@ -663,3 +663,32 @@ main > section:first-child { margin-top: -72px; }
   .page-head { padding-top: calc(28px + 72px); min-height: calc(240px + 72px); }
   body.nav-open .site-header { background: var(--ink-deep); }
 }
+
+/* ==== Palette refinement (after usersim-workshop + round-2/4 notes) ==========
+   Dark bands: near-black ink that only leans blue, instead of saturated blue,
+   with one warm amber glow low-left (echoes the amber accent) and one cool
+   UH-blue glow behind the card. Light bands: one warm paper family. */
+:root { --ink-deep: #050c14; --ink-mid: #0a1826; --ink-low: #0d2236; --paper-warm: #f6f3ec; }
+.hero:has(.hero-stack) {
+  background:
+    radial-gradient(640px 420px at 80% 58%, rgba(0,90,148,.30), transparent 70%),
+    radial-gradient(760px 520px at 4% 108%, rgba(255,176,0,.10), transparent 65%),
+    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink-mid) 55%, var(--ink-low) 100%);
+}
+.page-head, .cta-band {
+  background:
+    radial-gradient(760px 480px at 6% 115%, rgba(255,176,0,.09), transparent 65%),
+    radial-gradient(700px 420px at 92% 0%, rgba(0,90,148,.22), transparent 65%),
+    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink-mid) 60%, var(--ink-low) 100%);
+}
+.site-header.is-scrolled { background: rgba(5, 12, 20, .84); }
+.site-footer, body.nav-open .site-header { background: var(--ink-deep); }
+@media (max-width: 760px) { .nav { background: var(--ink-deep); } }
+/* Light bands: warm paper only (no cool lavender/azure blobs) */
+body { background: var(--paper-warm); }
+.section-white { background: #fbfaf7; }
+.section-tint { background-color: #f1ede4; }
+.cell-a { background: #f3e6c9; }
+.cell-b { background: #e7eef2; }
+.cell-c { background: #efe7d6; }
+.cell { opacity: .45; }
