@@ -692,3 +692,35 @@ body { background: var(--paper-warm); }
 .cell-b { background: #e7eef2; }
 .cell-c { background: #efe7d6; }
 .cell { opacity: .45; }
+/* Footer echoes the hero: same ink-to-navy gradient and glows, not flat black */
+.site-footer {
+  background:
+    radial-gradient(640px 360px at 85% 0%, rgba(0,90,148,.24), transparent 70%),
+    radial-gradient(700px 420px at 6% 100%, rgba(255,176,0,.08), transparent 65%),
+    linear-gradient(180deg, var(--ink-low) 0%, var(--ink-mid) 55%, var(--ink-deep) 100%);
+  border-top: 0;
+}
+.footer-bottom { border-top-color: rgba(255,255,255,.08); }
+/* CTA band directly above the footer: start dark, end at the footer's top colour */
+.cta-band {
+  background:
+    radial-gradient(760px 480px at 6% 115%, rgba(255,176,0,.09), transparent 65%),
+    radial-gradient(700px 420px at 92% 0%, rgba(0,90,148,.22), transparent 65%),
+    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink-mid) 55%, var(--ink-low) 100%);
+}
+.cta-band + * , main:has(.cta-band) + .site-footer { margin-top: 0; }
+/* CTA + footer read as one continuous band that ends like the hero (ink -> navy),
+   with no seam between them. */
+.cta-band {
+  background:
+    radial-gradient(760px 480px at 6% 0%, rgba(255,176,0,.07), transparent 65%),
+    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink-mid) 100%);
+}
+.site-footer {
+  background:
+    radial-gradient(640px 420px at 82% 100%, rgba(0,90,148,.28), transparent 70%),
+    radial-gradient(700px 420px at 6% 110%, rgba(255,176,0,.08), transparent 65%),
+    linear-gradient(180deg, var(--ink-mid) 0%, var(--ink-low) 100%);
+}
+/* The grain overlay greys the CTA band and creates a seam with the footer. */
+.cta-band::after { display: none; }
