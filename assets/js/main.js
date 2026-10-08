@@ -128,7 +128,8 @@
           ${next.notice ? `<p class="notice">${esc(next.notice)}</p>` : ""}
           <p class="cc-venue"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>${v.mapUrl ? `<a href="${esc(v.mapUrl)}" target="_blank" rel="noopener">${esc(v.name)}${v.room ? ", " + esc(v.room) : ""}</a>` : esc(v.name)} <span class="hybrid-pill">+ Zoom</span></p>
           <div class="cc-actions">
-            ${zoom ? `<a class="btn btn-primary" href="${esc(zoom)}" target="_blank" rel="noopener">Join on Zoom</a>` : `<a class="btn btn-primary" href="join.html">How to attend</a>`}
+            ${next.registration ? `<a class="btn btn-primary" href="${esc(next.registration)}" target="_blank" rel="noopener">Register</a>` : ""}
+            ${zoom ? `<a class="btn ${next.registration ? "btn-ghost" : "btn-primary"}" href="${esc(zoom)}" target="_blank" rel="noopener">Join on Zoom</a>` : `<a class="btn ${next.registration ? "btn-ghost" : "btn-primary"}" href="join.html">How to attend</a>`}
             <a class="btn btn-ghost" href="${googleCalUrl(next)}" target="_blank" rel="noopener">Add to calendar</a>
           </div>
           ${next.status !== "confirmed" ? `<p class="hero-status">${statusBadge(next)}</p>` : ""}
@@ -188,6 +189,7 @@
     if (s.recording) links.push(`<a class="btn btn-small" href="${esc(s.recording)}" target="_blank" rel="noopener">▶ Recording</a>`);
     if (s.slides) links.push(`<a class="btn btn-small" href="${esc(s.slides)}" target="_blank" rel="noopener">Slides</a>`);
     if (!opts.past && s.status !== "cancelled") {
+      if (s.registration) links.push(`<a class="btn btn-small btn-register" href="${esc(s.registration)}" target="_blank" rel="noopener">Register</a>`);
       links.push(`<a class="btn btn-small" href="${googleCalUrl(s)}" target="_blank" rel="noopener">Add to calendar</a>`);
       const z = s.zoom || S.series.zoom; if (z) links.push(`<a class="btn btn-small" href="${esc(z)}" target="_blank" rel="noopener">Zoom</a>`);
     }

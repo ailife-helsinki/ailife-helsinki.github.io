@@ -59,6 +59,8 @@ def main():
             desc += f"\nAiLIFE Radar: {s['radar']}"
         if s.get("abstract"):
             desc += "\n\n" + re.sub(r"<[^>]+>", "", s["abstract"])
+        if s.get("registration"):
+            desc += f"\nRegistration: {s['registration']}"
         zoom = s.get("zoom") or series.get("zoom")
         if zoom:
             desc += f"\nZoom: {zoom}"

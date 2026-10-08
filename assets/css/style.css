@@ -626,3 +626,7 @@ code { font-family: var(--font-mono); font-size: .86em; background: var(--paper-
 .hero:has(.hero-stack) > .hero-canvas { opacity: .9;
   -webkit-mask-image: radial-gradient(120% 120% at 70% 60%, #000 45%, rgba(0,0,0,.45) 85%, rgba(0,0,0,.3) 100%);
           mask-image: radial-gradient(120% 120% at 70% 60%, #000 45%, rgba(0,0,0,.45) 85%, rgba(0,0,0,.3) 100%); }
+
+/* Registration */
+.btn-small.btn-register { background: var(--uh-blue); color: #fff; border-color: var(--uh-blue); }
+.btn-small.btn-register:hover { background: var(--navy-80); color: #fff; }

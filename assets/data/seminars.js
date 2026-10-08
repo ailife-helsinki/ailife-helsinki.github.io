@@ -19,6 +19,7 @@
 //               [{ title: "ESM3 released", url: "https://...", note: "one-line why it matters" }, ...]
 //   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "viikki", "online", "tba" (not yet confirmed)
 //   notice      short highlighted message, optional (e.g. "Room changed to Hall 2")
+//   registration  sign-up form URL, optional (shows a "Register" button when set)
 //   zoom        URL string, optional (leave "" until announced)
 //   recording   URL string, optional (filled in after the talk)
 //   slides      URL string, optional
@@ -97,6 +98,7 @@ AILIFE.seminars = [
     radar: "Esa Pitkänen — introduction to the series and the month in AI",
     radarItems: [],
     venue: "biomedicum",
+    registration: "https://forms.gle/ujmq6D6XqaHTWMjaA",
     zoom: "",
     recording: "",
     slides: "",
