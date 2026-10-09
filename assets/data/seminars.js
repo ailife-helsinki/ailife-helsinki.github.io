@@ -98,7 +98,7 @@ AILIFE.seminars = [
     radar: "Esa Pitkänen — introduction to the series and the month in AI",
     radarItems: [],
     venue: "biomedicum",
-    registration: "https://forms.gle/ujmq6D6XqaHTWMjaA",
+    registration: "https://elomake.helsinki.fi/lomakkeet/141857/lomake.html",
     zoom: "",
     recording: "",
     slides: "",
