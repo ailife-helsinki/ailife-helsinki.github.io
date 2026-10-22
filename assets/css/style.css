@@ -367,6 +367,8 @@ strong { font-weight: 600; }
 .abstract summary::-webkit-details-marker { display: none; }
 .abstract summary::before { content: "+"; display: inline-block; width: 1.1em; transition: transform .2s; }
 .abstract[open] summary::before { content: "−"; }
+.abstract-label { margin: 0; font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--uh-blue); }
+.abstract-open .abstract-text { margin-top: 6px; }
 .abstract-text, .bio-text { margin-top: 10px; color: var(--ink-2); max-width: 70ch; }
 .bio-text h4 { margin: 12px 0 4px; font-size: .95rem; }
 @media (max-width: 600px) {
@@ -724,3 +726,7 @@ body { background: var(--paper-warm); }
 }
 /* The grain overlay greys the CTA band and creates a seam with the footer. */
 .cta-band::after { display: none; }
+
+/* Programme: topic tags sit right after the talk title */
+.title-tags { display: inline-flex; gap: 6px; margin-left: 10px; vertical-align: .3em; }
+.title-tags .tag { font-size: .62rem; padding: 3px 10px; white-space: nowrap; }

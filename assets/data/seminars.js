@@ -36,9 +36,6 @@ AILIFE.series = {
   timezone: "Europe/Helsinki",
   // General Zoom link for the hybrid stream. Leave empty until announced.
   zoom: "",
-  // Mailing list signup — set to the real list page (or a mailto:) when available;
-  // until then the links point to the organizers page.
-  mailingList: "organizers.html",
   // Contact e-mail is intentionally empty: the site says "contact the organizers".
   contactEmail: "",
 };
@@ -95,7 +92,7 @@ AILIFE.seminars = [
     title: "Towards AI-Native Molecular Medicine Research: A Life Scientist's Perspective",
     abstract: "",
     bio: "",
-    radar: "Esa Pitkänen — introduction to the series and the month in AI",
+    radar: "",
     radarItems: [],
     venue: "biomedicum",
     registration: "https://elomake.helsinki.fi/lomakkeet/141857/lomake.html",
@@ -104,7 +101,25 @@ AILIFE.seminars = [
     slides: "",
     tags: ["opening session"],
   },
-  { id: "2026-11-24", date: "2026-11-24", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  {
+    id: "2026-11-24",
+    date: "2026-11-24",
+    start: "13:00",
+    end: "14:00",
+    status: "confirmed",
+    speakers: [
+      { name: "Esa Pitkänen", affiliation: "FIMM, University of Helsinki", url: "https://mlbiomed.net/profiles.html#esa-pitkanen", photo: "assets/img/people/esa-pitkanen.jpg" },
+    ],
+    title: "AI Agents for Life Sciences: From Ad Hoc Software to Automated Computational Method Development",
+    abstract: "Modern AI agents are language models that pursue a goal by repeatedly deciding what to do next, using tools, and autonomously reacting to observations. In my talk, I will discuss the use of AI agents in life sciences to develop computational methods and analyses, and to analyze and interpret data in an automated fashion. Our group's experiences utilizing AI agents to create ad hoc software and tools for a single task or dataset, will be covered. I will then introduce MuFM, a foundation model for somatic variants whose development process has been semi-automated and agent-driven. The talk concludes with the prospects of fully automating computational method development and data analysis for life sciences.",
+    bio: "",
+    venue: "biomedicum3",
+    registration: "",
+    zoom: "",
+    recording: "",
+    slides: "",
+    tags: [],
+  },
   { id: "2026-12-22", date: "2026-12-22", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
   { id: "2027-01-26", date: "2027-01-26", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
   { id: "2027-02-23", date: "2027-02-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },

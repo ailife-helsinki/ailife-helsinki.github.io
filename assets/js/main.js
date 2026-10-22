@@ -99,7 +99,7 @@
     if (!next) {
       heroEl.innerHTML = `<p class="hero-kicker">Next seminar</p>
         <h2 class="hero-title">The ${S.series.season} programme has concluded</h2>
-        <p class="hero-lead">Thank you for joining us. Browse the <a href="past.html">archive of past seminars</a> or <a href="join.html">join the mailing list</a> to hear about the next season.</p>`;
+        <p class="hero-lead">Thank you for joining us. Browse the <a href="past.html">archive of past seminars</a>; the next season will be announced here.</p>`;
     } else {
       const v = venueOf(next);
       const p = parts(next);
@@ -130,7 +130,7 @@
           <div class="cc-actions">
             ${next.registration ? `<a class="btn btn-primary" href="${esc(next.registration)}" target="_blank" rel="noopener">Register</a>` : ""}
             ${zoom ? `<a class="btn ${next.registration ? "btn-ghost" : "btn-primary"}" href="${esc(zoom)}" target="_blank" rel="noopener">Join on Zoom</a>` : `<a class="btn ${next.registration ? "btn-ghost" : "btn-primary"}" href="join.html">How to attend</a>`}
-            <a class="btn btn-ghost" href="${googleCalUrl(next)}" target="_blank" rel="noopener">Add to calendar</a>
+            <a class="btn btn-ghost" href="${googleCalUrl(next)}" target="_blank" rel="noopener">Add to Google Calendar</a>
           </div>
           ${next.status !== "confirmed" ? `<p class="hero-status">${statusBadge(next)}</p>` : ""}
         </div>`;
@@ -190,14 +190,17 @@
     if (s.slides) links.push(`<a class="btn btn-small" href="${esc(s.slides)}" target="_blank" rel="noopener">Slides</a>`);
     if (!opts.past && s.status !== "cancelled") {
       if (s.registration) links.push(`<a class="btn btn-small btn-register" href="${esc(s.registration)}" target="_blank" rel="noopener">Register</a>`);
-      links.push(`<a class="btn btn-small" href="${googleCalUrl(s)}" target="_blank" rel="noopener">Add to calendar</a>`);
+      links.push(`<a class="btn btn-small" href="${googleCalUrl(s)}" target="_blank" rel="noopener">Add to Google Calendar</a>`);
       const z = s.zoom || S.series.zoom; if (z) links.push(`<a class="btn btn-small" href="${esc(z)}" target="_blank" rel="noopener">Zoom</a>`);
     }
-    const details = (s.abstract || s.bio) ? `
-      <details class="abstract"><summary>Abstract${s.bio ? " & speaker bio" : ""}</summary>
-        ${s.abstract ? `<div class="abstract-text">${s.abstract}</div>` : ""}
-        ${s.bio ? `<div class="bio-text"><h4>About the speaker</h4>${s.bio}</div>` : ""}
-      </details>` : "";
+    // The abstract is always shown; the speaker bio stays collapsible.
+    const details = (s.abstract ? `
+      <div class="abstract abstract-open"><p class="abstract-label">Abstract</p>
+        <div class="abstract-text">${s.abstract}</div>
+      </div>` : "") + (s.bio ? `
+      <details class="abstract"><summary>About the speaker</summary>
+        <div class="bio-text">${s.bio}</div>
+      </details>` : "");
     return `
       <article class="sem-card${pastCls}${s.status === "cancelled" ? " is-cancelled" : ""}" id="${esc(s.id)}">
         <div class="sem-date" aria-label="${esc(longDate(s))}">
@@ -207,11 +210,10 @@
         </div>
         <div class="sem-body">
           <p class="sem-meta"><span>${esc(p.day)}</span><span>·</span><span>${esc(timeRange(s))}</span><span>·</span><span>${v.mapUrl ? `<a href="${esc(v.mapUrl)}" target="_blank" rel="noopener">${esc(v.name)}</a>` : esc(v.name)}${v.room ? ", " + esc(v.room) : ""}</span><span>·</span><span>hybrid</span> ${s.status !== "confirmed" ? statusBadge(s) : ""}${s.recording ? ` <span class="badge badge-recording">Recording available</span>` : ""}</p>
-          <h3 class="sem-title">${esc(s.title && s.title !== "TBA" ? s.title : "Title to be announced")}</h3>
+          <h3 class="sem-title">${s.title && s.title !== "TBA" ? esc(s.title).replace(": ", ":<br>") : "Title to be announced"}${s.tags && s.tags.length ? `<span class="title-tags">${s.tags.map(tagHtml).join("")}</span>` : ""}</h3>
           ${s.notice ? `<p class="notice">${esc(s.notice)}</p>` : ""}
           <div class="sem-speakers">${sp}</div>
           ${s.radar ? `<p class="sem-radar"><span class="radar-dot" aria-hidden="true"></span><strong>AiLIFE Radar</strong> ${esc(s.radar)}</p>` : ""}
-          ${s.tags && s.tags.length ? `<p class="tags">${s.tags.map(tagHtml).join("")}</p>` : ""}
           ${details}
           ${links.length ? `<p class="sem-links">${links.join(" ")}</p>` : ""}
         </div>
@@ -282,7 +284,7 @@
   document.querySelectorAll('[data-ailife="zoom-link"]').forEach(el => {
     const z = S.series.zoom;
     if (z) { el.innerHTML = `<a href="${esc(z)}" target="_blank" rel="noopener">${esc(z)}</a>`; }
-    else { el.textContent = "The Zoom link is sent to the mailing list before each seminar."; }
+    else { el.textContent = "The Zoom link will be posted here before each seminar."; }
   });
   document.querySelectorAll('[data-ailife="webcal"]').forEach(el => {
     if (location.protocol === "http:" || location.protocol === "https:") {
@@ -290,7 +292,6 @@
       el.innerHTML = `<a href="webcal://${esc(u.host + u.pathname)}">webcal://${esc(u.host + u.pathname)}</a>`;
     } else { el.innerHTML = `<a href="ailife.ics" download>ailife.ics</a>`; }
   });
-  document.querySelectorAll('[data-ailife="mailing-list"]').forEach(el => { if (S.series.mailingList) el.setAttribute("href", S.series.mailingList); });
   document.querySelectorAll('[data-ailife="contact-email"]').forEach(el => {
     if (S.series.contactEmail) { el.setAttribute("href", "mailto:" + S.series.contactEmail); el.textContent = S.series.contactEmail; }
     else { el.setAttribute("href", "organizers.html"); if (el.textContent.trim() === "contact") el.textContent = "the organizers"; }

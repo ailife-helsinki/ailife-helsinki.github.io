@@ -15,7 +15,7 @@ in a browser or host the folder on any static web server (GitHub Pages, UH web s
 | `program.html` | Full programme of upcoming seminars with calendar links, abstracts and Zoom links |
 | `past.html` | Archive of past seminars grouped by season, with slides and recordings |
 | `organizers.html` | Organizer bios and hosting institutions |
-| `join.html` | Venue directions, Zoom/hybrid info, mailing list, calendar subscription |
+| `join.html` | Venue directions, Zoom/hybrid info, calendar subscription |
 | `ailife.ics` | Subscribable calendar for the whole series (generated, see below) |
 
 ## How to update the programme (the only file you normally edit)
@@ -46,7 +46,7 @@ entry updates the home page, the programme, the archive and the calendar file.
 ```
 
 * A seminar moves from the programme to the archive automatically once its end time has passed.
-* Series-wide settings (general Zoom link, contact e-mail, mailing-list link) are in `AILIFE.series`.
+* Series-wide settings (general Zoom link, contact e-mail) are in `AILIFE.series`.
 * Speaker photos: drop a square JPG/PNG into `assets/img/speakers/` and reference it in `photo`.
 
 After editing the data file, regenerate the calendar feed:
