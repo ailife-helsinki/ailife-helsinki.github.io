@@ -17,7 +17,7 @@
 //   radar       who gave the 10-15 min "AiLIFE Radar" opener, optional
 //   radarItems  the Radar round-up, shown on past.html once filled in, optional:
 //               [{ title: "ESM3 released", url: "https://...", note: "one-line why it matters" }, ...]
-//   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "viikki", "online", "tba" (not yet confirmed)
+//   venue       key in AILIFE.venues: "biomedicum" (BM1 seminar rooms 1-2), "biomedicum3" (BM1 seminar room 3), "biocenter3" (Biocenter 3, Viikki), "viikki", "online", "tba" (not yet confirmed)
 //   notice      short highlighted message, optional (e.g. "Room changed to Hall 2")
 //   registration  sign-up form URL, optional (shows a "Register" button when set)
 //   zoom        URL string, optional (leave "" until announced)
@@ -54,6 +54,13 @@ AILIFE.venues = {
     address: "Haartmaninkatu 8, 00290 Helsinki",
     campus: "Meilahti campus",
     mapUrl: "https://maps.google.com/?q=Biomedicum+Helsinki+1,+Haartmaninkatu+8,+00290+Helsinki",
+  },
+  biocenter3: {
+    name: "Biocenter 3",
+    room: "Seminar rooms 3401 & 3402",
+    address: "Viikinkaari 1, 00790 Helsinki",
+    campus: "Viikki campus",
+    mapUrl: "https://maps.google.com/?q=Biocenter+3,+Viikinkaari+1,+00790+Helsinki",
   },
   viikki: {
     name: "Viikki campus",
@@ -120,7 +127,25 @@ AILIFE.seminars = [
     slides: "",
     tags: [],
   },
-  { id: "2026-12-22", date: "2026-12-22", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
+  {
+    id: "2026-12-15",
+    date: "2026-12-15",
+    start: "14:00",
+    end: "15:00",
+    status: "confirmed",
+    speakers: [
+      { name: "Laura Ruotsalainen", affiliation: "Department of Computer Science, University of Helsinki", url: "https://researchportal.helsinki.fi/fi/persons/laura-ruotsalainen/", photo: "assets/img/people/laura-ruotsalainen.jpg" },
+    ],
+    title: "TBA",
+    abstract: "",
+    bio: "",
+    venue: "biocenter3",
+    registration: "",
+    zoom: "",
+    recording: "",
+    slides: "",
+    tags: [],
+  },
   { id: "2027-01-26", date: "2027-01-26", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
   { id: "2027-02-23", date: "2027-02-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },
   { id: "2027-03-23", date: "2027-03-23", start: "13:00", end: "14:00", status: "tentative", speakers: [], title: "TBA", venue: "tba", tags: [] },

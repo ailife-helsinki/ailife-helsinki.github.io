@@ -730,3 +730,8 @@ body { background: var(--paper-warm); }
 /* Programme: topic tags sit right after the talk title */
 .title-tags { display: inline-flex; gap: 6px; margin-left: 10px; vertical-align: .3em; }
 .title-tags .tag { font-size: .62rem; padding: 3px 10px; white-space: nowrap; }
+
+/* Past seminars: speaker portrait next to the name */
+.arc-speaker { display: flex; flex-direction: column; gap: 8px; }
+.arc-person { display: flex; align-items: center; gap: 12px; }
+.arc-photo { width: 52px; height: 52px; flex: none; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--uh-blue); }

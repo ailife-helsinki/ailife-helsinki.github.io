@@ -223,7 +223,7 @@
   // Archive row: a hairline-ruled "publication table" entry.
   function pastRow(s) {
     const v = venueOf(s);
-    const who = s.speakers && s.speakers.length ? s.speakers.map(x => `${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name)}${x.affiliation ? ` <span class="arc-aff">· ${esc(x.affiliation)}</span>` : ""}`).join("<br>") : "Speaker TBA";
+    const who = s.speakers && s.speakers.length ? s.speakers.map(x => `<span class="arc-person">${x.photo ? `<img class="arc-photo" src="${esc(x.photo)}" alt="" loading="lazy">` : ""}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name)}${x.affiliation ? ` <span class="arc-aff">· ${esc(x.affiliation)}</span>` : ""}</span></span>`).join("") : "Speaker TBA";
     const links = [];
     if (s.recording) links.push(`<a href="${esc(s.recording)}" target="_blank" rel="noopener">Recording ›</a>`);
     if (s.slides) links.push(`<a href="${esc(s.slides)}" target="_blank" rel="noopener">Slides ›</a>`);
@@ -279,6 +279,7 @@
 
   // --- Stats (any page) ----------------------------------------------------
   document.querySelectorAll('[data-ailife="count-past"]').forEach(el => el.textContent = past.length);
+  document.querySelectorAll('[data-ailife="count-past-label"]').forEach(el => el.textContent = past.length + (past.length === 1 ? " seminar" : " seminars"));
   document.querySelectorAll('[data-ailife="count-upcoming"]').forEach(el => el.textContent = upcoming.length);
   document.querySelectorAll('[data-ailife="next-date"]').forEach(el => el.textContent = next ? longDate(next) : "TBA");
   document.querySelectorAll('[data-ailife="zoom-link"]').forEach(el => {
