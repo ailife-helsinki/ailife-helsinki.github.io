@@ -121,7 +121,7 @@ AILIFE.seminars = [
     abstract: "Modern AI agents are language models that pursue a goal by repeatedly deciding what to do next, using tools, and autonomously reacting to observations. In my talk, I will discuss the use of AI agents in life sciences to develop computational methods and analyses, and to analyze and interpret data in an automated fashion. Our group's experiences utilizing AI agents to create ad hoc software and tools for a single task or dataset, will be covered. I will then introduce MuFM, a foundation model for somatic variants whose development process has been semi-automated and agent-driven. The talk concludes with the prospects of fully automating computational method development and data analysis for life sciences.",
     bio: "",
     venue: "biomedicum3",
-    registration: "",
+    registration: "https://elomake.helsinki.fi/lomakkeet/142279/lomake.html",
     zoom: "",
     recording: "",
     slides: "",
